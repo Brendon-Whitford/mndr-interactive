@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioTriggerManager : MonoBehaviour {
+public class Trigger : MonoBehaviour {
  
     public AudioClip nextMusic;
     public AudioSource audioObject;
