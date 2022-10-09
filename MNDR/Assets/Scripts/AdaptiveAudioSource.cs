@@ -10,12 +10,19 @@ public class AdaptiveAudioSource : MonoBehaviour
     public float timeToChange;
     [Header("Snapshot to switch to upon reaching said time. (starts with 0)")]
     public int snapshot;
-    [Header("Transition time to new snapshot.")]
-    public int transitionTime;
+    [Header("Transition time to new snapshot in seconds.")]
+    public float transitionTime;
     [Header("Useful for telling when to make the change.")]
     public bool debugPlaybackTime = false;
 
     bool switchedAlready = false;
+
+    void Start() {
+        // Set timeToChange to -1 to disable.
+        if (timeToChange == -1) {
+            switchedAlready = true;
+        }
+    }
 
     void Update()
     {

@@ -10,8 +10,8 @@ public class AdaptiveAudioTriggerZone : MonoBehaviour {
 
     [Header("Snapshot to switch to upon player entering the trigger. (starts with 0)")]
     public int snapshot;
-    [Header("Transition time to new snapshot.")]
-    public int transitionTime;
+    [Header("Transition time to new snapshot in seconds.")]
+    public float transitionTime;
 
     // Swap to an audio snapshot upon entering the trigger.
     void OnTriggerEnter(Collider collider)
