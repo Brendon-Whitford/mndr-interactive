@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script should be placed on box trigger object.
+// When the player enters it, it tells the audio manager to switch snapshots.
+
 [RequireComponent(typeof(BoxCollider))]
 public class AdaptiveAudioTriggerZone : MonoBehaviour {
 

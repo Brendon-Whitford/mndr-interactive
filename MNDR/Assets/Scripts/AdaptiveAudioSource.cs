@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script should be placed on an audio source.
+// When the audio source reaches a specified time, it tells the audio manager to switch snapshots.
+
 public class AdaptiveAudioSource : MonoBehaviour
 {
     public GameObject audioManager;

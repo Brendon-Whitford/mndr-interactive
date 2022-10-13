@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// This script takes input from AdaptiveAudioSource and AdaptiveAudioTriggerZones.
+// It switches to different versions of the mix (called snapshots) when told to do so.
+// Edit snapshots in the Audio Mixer window of Unity.
+
 public class AdaptiveAudioManager : MonoBehaviour {
 
     public AudioMixerSnapshot[] snapshotLevels;
