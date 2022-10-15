@@ -5,25 +5,23 @@ using UnityEngine.Audio;
 
 public class AdaptiveAudioManager : MonoBehaviour {
 
-    public int defaultAdaptiveLevel;
-    private int currentAdaptiveLevel;
     public AudioMixerSnapshot[] snapshotLevels;
-    public float transitionTime = 1;
+
+    public int defaultSnapshot;
+    private int currentSnapshot;
 
     void Start() {
-        currentAdaptiveLevel = defaultAdaptiveLevel;
+        currentSnapshot = defaultSnapshot;
     }
 
-	public void AdjustAudioLevel(int level)
+	public void SetAudioSnapshot(int level, float transitionTime)
     {
-        currentAdaptiveLevel = level;
-        snapshotLevels[currentAdaptiveLevel].TransitionTo(transitionTime);
-        // Debug.Log(level);
+        currentSnapshot = level;
+        snapshotLevels[currentSnapshot].TransitionTo(transitionTime);
     }
 
-	public void SetDefaultAudio()
+	public void SetDefaultSnapshot(float transitionTime)
     {
-        snapshotLevels[defaultAdaptiveLevel].TransitionTo(transitionTime);
-        // Debug.Log("Reset default");
+        snapshotLevels[defaultSnapshot].TransitionTo(transitionTime);
     }
 }
