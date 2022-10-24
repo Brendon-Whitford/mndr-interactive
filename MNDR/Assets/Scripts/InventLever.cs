@@ -15,7 +15,7 @@ public class InventLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.transform.localRotation.z);
+        // Debug.Log(this.transform.localRotation.z);
 
         if(this.transform.rotation.z >= 0.50)
         {
