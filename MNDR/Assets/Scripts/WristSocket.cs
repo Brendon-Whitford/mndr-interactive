@@ -9,8 +9,6 @@ public class WristSocket : XRSocketInteractor
     public float targetSize = 0.25f;
     public float sizingDuration = 0.25f;
    
-    
-
     // Runtime
     private Vector3 originalScale = Vector3.one;
     private Vector3 objectSize = Vector3.zero;
