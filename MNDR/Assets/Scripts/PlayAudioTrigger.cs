@@ -23,6 +23,7 @@ public class PlayAudioTrigger : MonoBehaviour {
                 SwitchAudio();
             } else {
                 playNext = true;
+                Debug.Log("playing next audio..");
             }
 
         }
