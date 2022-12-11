@@ -19,8 +19,13 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Project
   m_RootView: {fileID: 6}
+=======
+  m_Title: Inspector
+  m_RootView: {fileID: 7}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
@@ -32,6 +37,35 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+<<<<<<< HEAD
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1260
+    y: 0
+    width: 206
+    height: 561
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_EditorHideFlags: 1
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -48,6 +82,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 19
 --- !u!114 &3
 MonoBehaviour:
@@ -75,6 +110,9 @@ MonoBehaviour:
   - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 0
+=======
+  controlID: 73
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -111,6 +149,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
+=======
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 314
+    height: 561
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
+  m_Panes:
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
@@ -243,6 +310,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1465
     height: 599
   m_MinSize: {x: 200, y: 100}
@@ -250,6 +318,41 @@ MonoBehaviour:
   vertical: 0
   controlID: 26
 --- !u!114 &11
+=======
+    width: 1466
+    height: 947
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 1
+  controlID: 182
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 5}
+  - {fileID: 12}
+  - {fileID: 2}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1466
+    height: 561
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 8096}
+  vertical: 0
+  controlID: 64
+--- !u!114 &12
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,11 +369,19 @@ MonoBehaviour:
     serializedVersion: 2
     x: 315
     y: 0
+<<<<<<< HEAD
     width: 1150
     height: 599
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
+=======
+    width: 946
+    height: 561
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 16}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
@@ -330,9 +441,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 48730000
     m_LastClickedID: 29512
     m_ExpandedIDs: 00000000a2710000a6710000a8710000aa710000ac710000ae71000000ca9a3b
+=======
+    m_SelectedIDs: ec710000
+    m_LastClickedID: 29164
+    m_ExpandedIDs: 00000000e271000000ca9a3b
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -488,6 +605,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: b01f0100
       m_LastClickedID: 0
       m_ExpandedIDs: c250fdffa251fdff087dfdff1e7dfdff2c7dfdff407dfdff2ccffdff0c3cfeffb23cfeff34d0ffffe0d0ffff2cdcffff2cfbfffff4ffffffb86f0000207000003a960000e6df0000a61901000e1a0100
@@ -495,18 +613,35 @@ MonoBehaviour:
         m_UserAcceptedRename: 0
         m_Name: BackPackOffset
         m_OriginalName: BackPackOffset
+=======
+      m_SelectedIDs: 78720000
+      m_LastClickedID: 29304
+      m_ExpandedIDs: faf8ffff46f9ffff2cfbffff78720000
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
+<<<<<<< HEAD
         m_UserData: 72102
+=======
+        m_UserData: 0
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
+<<<<<<< HEAD
         m_ClientGUIView: {fileID: 4}
+=======
+        m_ClientGUIView: {fileID: 12}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -536,8 +671,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2235
     y: 73
+<<<<<<< HEAD
     width: 1148
     height: 578
+=======
+    width: 944
+    height: 540
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -739,9 +879,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -7.255472, y: -11.143996, z: 23.336899}
     speed: 2
     m_Value: {x: -7.255472, y: -11.143996, z: 23.336899}
+=======
+    m_Target: {x: 0.19421223, y: -0.10945258, z: 4.4390903}
+    speed: 2
+    m_Value: {x: 0.19421223, y: -0.10945258, z: 4.4390903}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -788,9 +934,15 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.2474219, y: 0.17284864, z: -0.04156517, w: -0.9514993}
     speed: 2
     m_Value: {x: -0.24764827, y: 0.17300677, z: -0.041603196, w: -0.9523698}
+=======
+    m_Target: {x: 0.12543282, y: -0.46847442, z: 0.06715144, w: 0.8715399}
+    speed: 2
+    m_Value: {x: 0.12557782, y: -0.46733186, z: 0.06698691, w: 0.87255025}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_Size:
     m_Target: 12.124355
     speed: 2
@@ -839,10 +991,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 2234
     y: 73
     width: 1150
     height: 578
+=======
+    x: 3180
+    y: 73
+    width: 204
+    height: 540
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -853,7 +1012,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 1150, y: 557}
+=======
+  m_TargetSize: {x: 204, y: 519}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -868,10 +1031,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -575
     m_HBaseRangeMax: 575
     m_VBaseRangeMin: -278.5
     m_VBaseRangeMax: 278.5
+=======
+    m_HBaseRangeMin: -102
+    m_HBaseRangeMax: 102
+    m_VBaseRangeMin: -259.5
+    m_VBaseRangeMax: 259.5
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -889,16 +1059,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 1150
       height: 557
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 575, y: 278.5}
+=======
+      width: 204
+      height: 519
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 102, y: 259.5}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -575
       y: -278.5
       width: 1150
@@ -906,6 +1084,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1150, y: 578}
+=======
+      x: -102
+      y: -259.5
+      width: 204
+      height: 519
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 204, y: 540}
+>>>>>>> parent of af97b24 (Revert "Earth room concept")
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
