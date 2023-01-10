@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    public ParentItem parented;
     Vector3 pos;
     public GameObject Inventory;
     public Transform PlayerHead;
@@ -19,14 +20,17 @@ public class Mover : MonoBehaviour
 
         if(pos.x <= 0.015f)
         {
-            Inventory.SetActive(false);
+          //  Inventory.SetActive(false);
+           // Inventory.GetComponent<Renderer>().enabled = false;
+            Inventory.GetComponentInChildren<Renderer>().enabled = false;
             hasUpdated = false;
         }
         else if (pos.x >= 0.016)
         {
-            
-            Inventory.SetActive(true);
-            if(hasUpdated == false)
+
+            // Inventory.SetActive(true);
+            Inventory.GetComponentInChildren<Renderer>().enabled = true;
+            if (hasUpdated == false)
             {
                 needsUpdate();
             }
