@@ -44,62 +44,63 @@ public class WristSocket : XRSocketInteractor
     {
         // Store object when select begins
         base.OnSelectEntering(interactable);
-        StoreObjectSizeScale(interactable);
+        //StoreObjectSizeScale(interactable);
     }
 
     protected override void OnSelectEntered(XRBaseInteractable interactable)
     {
         // Once select has occured, scale object to size
         base.OnSelectEntered(interactable);
-        TweenSizeToSocket(interactable);
+        Destroy(interactable);
+        //TweenSizeToSocket(interactable);
     }
 
     protected override void OnSelectExited(XRBaseInteractable interactable)
     {
         // Once the user has grabbed the object, scale to original size
-        base.OnSelectExited(interactable);
-        SetOriginalScale(interactable);
-        canSelect = false;
+       // base.OnSelectExited(interactable);
+       // SetOriginalScale(interactable);
+       // canSelect = false;
     }
 
-    private void StoreObjectSizeScale(XRBaseInteractable interactable)
+    /*private void StoreObjectSizeScale(XRBaseInteractable interactable)
     {
         // Find the object's size
         objectSize = FindObjectSize(interactable.gameObject);
         originalScale = interactable.transform.localScale;
-    }
+    }*/
 
-    private Vector3 FindObjectSize(GameObject objectToMeasure)
+   /* private Vector3 FindObjectSize(GameObject objectToMeasure)
     {
         Vector3 size = Vector3.one;
 
         // Assumes the interactable has one mesh on the root
-        if(objectToMeasure.TryGetComponent(out MeshFilter meshFilter))
+      //  if(objectToMeasure.TryGetComponent(out MeshFilter meshFilter))
         
-            size = ColliderMeasurer.Instance.Measure(meshFilter.mesh);
+           // size = ColliderMeasurer.Instance.Measure(meshFilter.mesh);
         
 
         return size;
-    }
+    }*/
 
-    private void TweenSizeToSocket(XRBaseInteractable interactable)
+   /* private void TweenSizeToSocket(XRBaseInteractable interactable)
     {
         // Find the new scale based on the size of the collider, and scale
         Vector3 targetScale = FindTargetScale();
         // Tween to our new scale
        interactable.transform.localScale = targetScale;
        
-    }
+    }*/
 
-    private Vector3 FindTargetScale()
+   /* private Vector3 FindTargetScale()
     {
         // Figure out new scale, we assume the object is originally uniformly scaled
         float largestSize = FindLargestSize(objectSize);
         float scaleDifference = targetSize / largestSize;
         return Vector3.one * scaleDifference;
-    }
+    }*/
 
-    private void SetOriginalScale(XRBaseInteractable interactable)
+   /* private void SetOriginalScale(XRBaseInteractable interactable)
     {
         // This isn't necessary, but prevents an error when exiting play
         if (interactable)
@@ -117,14 +118,14 @@ public class WristSocket : XRSocketInteractor
         // Reset just incase
         originalScale = Vector3.one;
         objectSize = Vector3.zero;
-    }
+    }*/
 
-    private float FindLargestSize(Vector3 value)
+   /* private float FindLargestSize(Vector3 value)
     {
         float largestSize = Mathf.Max(value.x, value.y);
         largestSize = Mathf.Max(largestSize, value.z);
         return largestSize ;
-    }
+    }*/
 
     public override XRBaseInteractable.MovementType? selectedInteractableMovementTypeOverride
     {

@@ -1,31 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Item
+public  class Item: MonoBehaviour
 {
-    public int id;
-    public string title;
-    public string description;
-    public Sprite icon;
-    public Dictionary<string, int> stats = new Dictionary<string, int>();
+    public GameObject thisButton;
+    public int IDnumber;
+    //public List<GameObject> Buttons = new List<GameObject>();
+    
+    public bool Collected;
 
-    public Item(int id, string title, string description,/* Sprite icon,*/ Dictionary<string, int> stats)
+   
+
+    
+    private void OnDestroy()
     {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        // this.icon = icon;
-        this.stats = stats;
+       
+        thisButton.GetComponent<Button>().interactable = true;
     }
 
-    public Item(Item item)
+    /*  private void OnTriggerStay(Collider other)
+      {
+          if(other.gameObject.tag == "spawnBox")
+          {
+              if(other.gameObject.tag == "Item")
+              {
+                  Destroy(this.gameObject);
+              }
+          }
+      }*/
+
+    private void OnCollisionEnter(Collision collision)
     {
-        this.id = item.id;
-        this.title = item.title;
-        this.description = item.description;
-       // this.icon = item.icon;
-        this.stats = item.stats;
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "PlayerHands")
+        {
+            Collected = true;
+            thisButton.GetComponent<IDscript>().checkCollected();
+        }
+        if (collision.gameObject.tag == "spawnBox")
+        {
+            if (collision.gameObject.tag == "Item")
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
+    public void destroyItem()
+    {
+        Destroy(this.gameObject);
+
     }
 }
 
