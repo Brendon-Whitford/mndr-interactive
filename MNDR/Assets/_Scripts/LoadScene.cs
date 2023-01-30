@@ -1,3 +1,5 @@
+// The player's parent object needs to be tagged with "Player" for this script to trigger correctly.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,26 +8,22 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     public string SceneNamed;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
+    public bool additiveScene;
+    public bool retainPlayerPosition;
+    public float playerPosX;
+    public float playerPosY;
+    public float playerPosZ;
 
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<Collider>();
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneNamed);
-            // when the barrier loads the next scene the player's cordinates do not reset to (0,0,0)
+            if (additiveScene) SceneManager.LoadScene(SceneNamed, LoadSceneMode.Additive);
+            if (!additiveScene) SceneManager.LoadScene(SceneNamed, LoadSceneMode.Single);
+
+            if (!retainPlayerPosition) other.transform.position = new Vector3(playerPosX, playerPosY, playerPosZ);
+
+            Debug.Log("loading scene " + SceneNamed);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
