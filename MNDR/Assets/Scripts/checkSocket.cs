@@ -19,6 +19,7 @@ public class checkSocket : MonoBehaviour
     // Update is called once per frame
    public void socketCheck()
     {
+        
         Debug.Log("ItemDetected");
         
        // GameObject item = socket.selectTarget.gameObject;
