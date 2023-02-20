@@ -10,6 +10,7 @@ public class IDscript : MonoBehaviour
     public GameObject itemToSpawn;
     public GameObject recentItem;
     public GameObject spawnDisplay;
+    public bool iWasCollected = false;
     /* public void sendIDToSpawn()
       {
           Debug.Log(buttonID);
@@ -36,6 +37,9 @@ public class IDscript : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
+       if(recentItem == null && iWasCollected == true)
+        {
+            this.GetComponent<Button>().interactable = true;
+        }
     }
 }

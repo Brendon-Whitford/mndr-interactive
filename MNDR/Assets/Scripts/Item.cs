@@ -7,17 +7,21 @@ public  class Item: MonoBehaviour
 {
     public GameObject thisButton;
     public int IDnumber;
+    //public Button buttenable;
     //public List<GameObject> Buttons = new List<GameObject>();
-    
+
     public bool Collected;
+    private void Start()
+    {
+      // buttenable = thisButton.GetComponent<Button>();
+    }
 
-   
 
-    
+
     private void OnDestroy()
     {
-       
-        thisButton.GetComponent<Button>().interactable = true;
+
+      //  buttenable.interactable = true;
     }
 
     /*  private void OnTriggerStay(Collider other)
@@ -35,8 +39,9 @@ public  class Item: MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "PlayerHands")
         {
-            Collected = true;
+            
             thisButton.GetComponent<IDscript>().checkCollected();
+            thisButton.GetComponent<IDscript>().iWasCollected = true;
         }
         if (collision.gameObject.tag == "spawnBox")
         {
@@ -46,10 +51,30 @@ public  class Item: MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerHands")
+        {
+            thisButton.GetComponent<IDscript>().checkCollected();
+            thisButton.GetComponent<IDscript>().iWasCollected = true;
+        }
+        if (other.gameObject.tag == "spawnBox")
+        {
+            if (other.gameObject.tag == "Item")
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
     public void destroyItem()
     {
-        Destroy(this.gameObject);
+       
+        // thisButton.GetComponent<Button>().interactable = true;
+       
+            Destroy(this.gameObject);
+        
+        
 
     }
 }
