@@ -25,8 +25,8 @@ public class checkSocket : MonoBehaviour
 
         GameObject itemSocketed = socket.selectTarget.gameObject;
         //Debug.Log(itemSocketed);
-        
-        itemSocketed.GetComponent<Item>().destroyItem();
+
+        Destroy(itemSocketed);
         //Destroy(itemSocketed);
        // DontDestroyOnLoad(item);
         //Debug.Log(item);
