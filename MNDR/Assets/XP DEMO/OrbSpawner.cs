@@ -19,7 +19,7 @@ public class OrbSpawner : MonoBehaviour
         if (Input.GetKeyDown("space")) SpawnOrbs();
     }
 
-    void SpawnOrbs()
+    public void SpawnOrbs()
     {
         for (int i = 0; i < orbAmount; i++)
         {
