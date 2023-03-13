@@ -2501,8 +2501,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3168763773589695177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.589, z: -0.10599995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0035665, y: -0.38798, z: -0.098445}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6630055263966273773}
@@ -2638,7 +2638,7 @@ MonoBehaviour:
   head:
     vrTarget: {fileID: 3231251877710010852}
     ikTarget: {fileID: 3231251876511237376}
-    trackingPositionOffset: {x: 0, y: -0.03, z: -0.09}
+    trackingPositionOffset: {x: -0.03, y: -0.1, z: -0.19}
     trackingRotationOffset: {x: 0, y: 0, z: 0}
   leftHand:
     vrTarget: {fileID: 3231251875821059430}
@@ -2652,7 +2652,7 @@ MonoBehaviour:
     trackingRotationOffset: {x: 0, y: -90, z: -90}
   turnSmoothness: 0
   ikHead: {fileID: 3231251876511237376}
-  headBodyOffset: {x: 0, y: -1.24, z: 0}
+  headBodyOffset: {x: 0, y: -2.69, z: 0}
 --- !u!1 &3231251875622049577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,7 +2767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231251875674006797}
   m_LocalRotation: {x: 0.6905902, y: -0.048231363, z: 0.6822906, w: 0.23502883}
-  m_LocalPosition: {x: -0.008217949, y: 0.04890368, z: -0.005066077}
+  m_LocalPosition: {x: -0.00813, y: 0.04926, z: -0.00372}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2835,7 +2835,7 @@ GameObject:
   - component: {fileID: 3231251875821059429}
   - component: {fileID: 3231251875821059428}
   - component: {fileID: 3231251875821059431}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: LeftHand Controller
   m_TagString: PlayerHands
   m_Icon: {fileID: 0}
@@ -3041,7 +3041,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 6
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -3309,8 +3309,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   m_InvalidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 0}
+    key1: {r: 1, g: 0, b: 0, a: 0}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3357,6 +3357,7 @@ GameObject:
   - component: {fileID: 3231251875857058764}
   - component: {fileID: 3231251875857058767}
   - component: {fileID: 3231251875857058760}
+  - component: {fileID: 2115347225}
   m_Layer: 7
   m_Name: XR Origin
   m_TagString: Player
@@ -3478,10 +3479,10 @@ CharacterController:
   m_GameObject: {fileID: 3231251875857058752}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.11
+  m_Height: 7
+  m_Radius: 0.43
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -3494,7 +3495,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231251875857058752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
   m_Name: 
@@ -3516,6 +3517,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &2115347225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231251875857058752}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 0}
+  m_TurnSpeed: 60
+  m_LeftHandTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: d36d742a-0379-452c-8c76-d12a1ca75893
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightHandTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6eeba4f1-dfd1-4a2a-a7ef-b983850d5a8a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!1 &3231251876100052351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,7 +3962,7 @@ MonoBehaviour:
   stepLength: 0.3
   stepHeight: 0.3
   footPosOffset: {x: 0, y: 0.03, z: 0}
-  footRotOffset: {x: 25, y: 0, z: 185.3}
+  footRotOffset: {x: -160, y: 144, z: 270}
 --- !u!1 &3231251877058609530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,7 +4037,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.94, z: 0.28}
+  m_Size: {x: 0.64, y: 1, z: 0.28}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3231251877136398470
 GameObject:
@@ -4082,7 +4121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231251877370541336}
   m_LocalRotation: {x: -0.6856228, y: -0.07771388, z: 0.6748981, w: -0.26152346}
-  m_LocalPosition: {x: 0.00925, y: 0.04901, z: -0.00504}
+  m_LocalPosition: {x: 0.009337947, y: 0.04936632, z: -0.0036939303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4324,7 +4363,7 @@ GameObject:
   - component: {fileID: 3231251877576557606}
   - component: {fileID: 3231251877576557593}
   - component: {fileID: 3231251877576557592}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: RightHand Controller
   m_TagString: PlayerHands
   m_Icon: {fileID: 0}
@@ -4798,8 +4837,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   m_InvalidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 0}
+    key1: {r: 1, g: 0, b: 0, a: 0}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4873,7 +4912,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.94, z: 0.28}
+  m_Size: {x: 0.64, y: 1, z: 0.28}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3231251877671904556
 GameObject:
@@ -4929,7 +4968,7 @@ MonoBehaviour:
   stepLength: 0.3
   stepHeight: 0.3
   footPosOffset: {x: 0, y: 0, z: 0}
-  footRotOffset: {x: 31.15, y: 0, z: -180}
+  footRotOffset: {x: -7.7, y: -37, z: 88.22}
 --- !u!1 &3231251877710010855
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,7 +5444,7 @@ GameObject:
   - component: {fileID: 2964795010141566670}
   - component: {fileID: 8290895370605547384}
   - component: {fileID: 2819480675937871277}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5486,7 +5525,7 @@ BoxCollider:
   m_GameObject: {fileID: 4055724795901260558}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6514,7 +6553,7 @@ GameObject:
   - component: {fileID: 5967933102855703784}
   - component: {fileID: 6840120586807534958}
   - component: {fileID: 1864657781829987194}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6595,7 +6634,7 @@ BoxCollider:
   m_GameObject: {fileID: 7922038405728028926}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6616,7 +6655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8594000280104085826
 Transform:
   m_ObjectHideFlags: 0
