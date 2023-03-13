@@ -22,9 +22,14 @@ public class checkSocket : MonoBehaviour
         
         Debug.Log("ItemDetected");
         
-       // GameObject item = socket.selectTarget.gameObject;
+
+        GameObject itemSocketed = socket.selectTarget.gameObject;
+        //Debug.Log(itemSocketed);
+
+        Destroy(itemSocketed);
+        //Destroy(itemSocketed);
        // DontDestroyOnLoad(item);
-       // Debug.Log(item);
+        //Debug.Log(item);
        
        
             

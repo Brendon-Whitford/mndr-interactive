@@ -16,6 +16,10 @@ public class Teleportation : MonoBehaviour
     private float playerZ;
     private float distance;
     private float sceneDist;
+<<<<<<< HEAD
+=======
+    Teleporter teleporter;
+>>>>>>> main
     // Start is called before the first frame update
     void Start()
     {
