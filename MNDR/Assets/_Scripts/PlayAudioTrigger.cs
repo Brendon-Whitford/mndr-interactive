@@ -10,6 +10,7 @@ public class PlayAudioTrigger : MonoBehaviour {
 
     public List<GameObject> audioToPlay;
     public List<GameObject> audioToStop;
+    public List<GameObject> audioTriggersToDisable;
 
     public bool syncWithAudio = true;
     public GameObject audioToSync;
@@ -46,6 +47,9 @@ public class PlayAudioTrigger : MonoBehaviour {
         }
         for (int w=0; w < audioToStop.Count; w++) {
             audioToStop[w].GetComponent<AudioSource>().Stop();
+        }
+        for (int k=0; k < audioTriggersToDisable.Count; k++) {
+            audioTriggersToDisable[k].gameObject.SetActive(false);
         }
     }
 }
