@@ -48,6 +48,7 @@ public  class Item: MonoBehaviour
             if (collision.gameObject.tag == "Item")
             {
                 Destroy(this.gameObject);
+                //thisButton.GetComponent<IDscript>().iWasCollected = true;
             }
         }
     }

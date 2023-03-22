@@ -17,6 +17,14 @@ public class IDscript : MonoBehaviour
           itemSpawnerSC.compareINT = buttonID;
           this.gameObject.GetComponent<Button>().interactable = false;
       }*/
+
+    public void Start()
+    {
+        this.GetComponent<Button>().interactable = false;
+        iWasCollected = false;
+
+    }
+
     public void spawnItem()
     {
         recentItem = Instantiate(itemToSpawn, spawnDisplay.transform.position, spawnDisplay.transform.rotation);
@@ -31,7 +39,7 @@ public class IDscript : MonoBehaviour
     public void checkCollected()
     {
        
-            this.gameObject.GetComponent<Button>().interactable = true;
+             this.gameObject.GetComponent<Button>().interactable = true;
         
     }
 
