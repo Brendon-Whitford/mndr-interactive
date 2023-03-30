@@ -18,12 +18,12 @@ public class IDscript : MonoBehaviour
           this.gameObject.GetComponent<Button>().interactable = false;
       }*/
 
-    public void Start()
+   /* public void Start()
     {
         this.GetComponent<Button>().interactable = false;
         iWasCollected = false;
 
-    }
+    }*/
 
     public void spawnItem()
     {

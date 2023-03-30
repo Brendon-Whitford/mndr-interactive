@@ -48,7 +48,7 @@ public class FXSpawner : MonoBehaviour
     // void Update() {
     //     OnDrawGizmos();
     // }
-    public void OnDrawGizmos()
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(xBound, yBound, zBound));
