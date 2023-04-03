@@ -2,9 +2,8 @@
  * GenericInteractionActivity.cs
  * Author: Jackson Looney
  * Description: Base Handler for adding activities to the game. Will check if things are interacted with a number of times.
- * Meant to be utilized alongside another script that has a reference to this one, if any of the objects that are in the list don't have a reference to this script/object, or don't call increment(), it will throw errors, or will never complete.
- * 
- * 
+ * Meant to be utilized alongside another script that has a reference to this one, if any of the objects that are in the list don't have a reference to this script/object, or don't call increment(),
+ * it will throw errors, or will never complete.
  */
 using System.Collections;
 using System.Collections.Generic;
