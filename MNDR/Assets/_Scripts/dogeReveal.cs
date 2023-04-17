@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This is a test script made by Tim used for early chapel scenes to reveal a doge image
+
 public class dogeReveal : MonoBehaviour
 {
     public Transform target;
