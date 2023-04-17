@@ -1458,7 +1458,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261879103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261879103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52af2bd3eb6aad24d84a29650db8c0e0, type: 3}
   m_Name: 
@@ -6033,7 +6033,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185590272}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52af2bd3eb6aad24d84a29650db8c0e0, type: 3}
   m_Name: 
@@ -16197,6 +16197,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 421042147871917453, guid: f0cb423602bc2434f8bd39cfca3cec52, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 473111718268659712, guid: f0cb423602bc2434f8bd39cfca3cec52, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.999396
@@ -16748,6 +16752,10 @@ PrefabInstance:
     - target: {fileID: 5918212952102100146, guid: f0cb423602bc2434f8bd39cfca3cec52, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918212952102100159, guid: f0cb423602bc2434f8bd39cfca3cec52, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5918212952102100159, guid: f0cb423602bc2434f8bd39cfca3cec52, type: 3}
       propertyPath: m_Controller
