@@ -7,8 +7,20 @@ public class zipperClamp : MonoBehaviour
     public GameObject zipper;
     public GameObject Inventory;
     public Transform zipperPos;
-    float minX = 0f;
+    public float zipX;
+    public float zipY;
+    public float zipZ;
+     float minX = 0f;
     float maxX = 0.03f;
+
+    float inX;
+    float inY;
+    float inZ;
+    public float addX = 0;
+    public float addY = 0;
+    public float addZ = 0;
+
+
     // Get the object's local position
 
     // Clamp the local x-position to the range between minX and maxX
@@ -30,6 +42,9 @@ public class zipperClamp : MonoBehaviour
     void Update()
     {
         Vector3 localPos = zipperPos.localPosition;
+        addX = 1;
+        addY = 0.5f;
+        addZ = -.3f;
 
         // Clamp the local x-position to the range between minX and maxX
         localPos.x = Mathf.Clamp(localPos.x, minX, maxX);
@@ -41,6 +56,11 @@ public class zipperClamp : MonoBehaviour
 
         if(zipper.transform.localPosition.x >= 0.025)
         {
+            inX = this.transform.position.x;
+            inY = this.transform.position.y;
+            inZ = this.transform.position.z;
+            Inventory.transform.position = new Vector3(inX + addX, inY + addY, inZ + addZ);
+
             Inventory.SetActive(true);
         }
         else

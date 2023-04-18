@@ -6,7 +6,7 @@ public class WristSocket : XRSocketInteractor
 
     //static public ToNextScene Script;
     // Sizing
-    public float targetSize = 0.25f;
+    public float targetSize = 0.25f;//
     public float sizingDuration = 0.25f;
    
     
