@@ -10,20 +10,20 @@ public class Teleportation : MonoBehaviour
     public GameObject enterTeleport;
     public GameObject exitTeleport;
     public GameObject sceneTeleport;
-    public int x = 0;
     private float playerX;
     private float playerY;
     private float playerZ;
     private float distance;
-    private float sceneDist;
+    private float sceneDist = 100;
     //Teleporter teleporter;
     // Start is called before the first frame update
     void Start()
     {
+        //Assigns the player object and portal object to variables
         player = GameObject.FindGameObjectWithTag("Player");
-        enterTeleport = GameObject.FindGameObjectWithTag("Enter");
-        exitTeleport = GameObject.FindGameObjectWithTag("Exit");
-        sceneTeleport = GameObject.FindGameObjectWithTag("sceneEnter");
+        //enterTeleport = GameObject.FindGameObjectWithTag("PortalEnter");
+        //exitTeleport = GameObject.FindGameObjectWithTag("PortalExit");
+        sceneTeleport = GameObject.FindGameObjectWithTag("PortalEnter");
 
 
     }
@@ -35,25 +35,25 @@ public class Teleportation : MonoBehaviour
         playerX = player.transform.position.x;
         playerY = player.transform.position.y;
         playerZ = player.transform.position.z;
-        distance = Vector3.Distance(player.transform.position, enterTeleport.transform.position);
-        sceneDist = Vector3.Distance(player.transform.position, sceneTeleport.transform.position);
-        x++;
+        //distance = Vector3.Distance(player.transform.position, enterTeleport.transform.position);
 
-        if (x == 20)
+        //Checks to see if there is an portal object in the map
+        if (sceneTeleport != null)
         {
-            player.transform.position = new Vector3(playerX + 1, playerY, playerZ);
-            x = 0;
-        }
+            sceneDist = Vector3.Distance(player.transform.position, sceneTeleport.transform.position);
+        }  
 
-        if(distance < 1)
+        /*if(distance < 1)
         {
             //player.transform.position = new Vector3(exitTeleport.transform.position.x, exitTeleport.transform.position.y+.5f, exitTeleport.transform.position.z);
 
-        }
+        }*/
 
         if(sceneDist < 1)
         {
-            //SceneManager.LoadScene("SampleScene");
+            //If the player is close to the portal, initialize the brain maze scene
+            Debug.Log("Got Here");
+            SceneManager.LoadScene("2 Brain Maze");
         }
 
     }
