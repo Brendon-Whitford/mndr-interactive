@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4219782940108066675}
   - component: {fileID: 4219782940108066685}
   - component: {fileID: 4219782940108066684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardFrontside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4219782940316549864}
   - component: {fileID: 4219782940316549871}
   - component: {fileID: 8732896258340668239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ES Card 58
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,8 +167,16 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 2
+  m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
   m_FirstHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -199,6 +207,9 @@ MonoBehaviour:
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
   m_OnFirstHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -227,6 +238,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
+  m_SecondaryAttachTransform: {fileID: 0}
+  m_UseDynamicAttach: 0
+  m_MatchAttachPosition: 1
+  m_MatchAttachRotation: 1
+  m_SnapToColliderVolume: 1
+  m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
   m_MovementType: 2
   m_VelocityDamping: 1
@@ -263,6 +280,9 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+  m_StartingSingleGrabTransformers: []
+  m_StartingMultipleGrabTransformers: []
+  m_AddDefaultGrabTransformers: 1
 --- !u!1 &4219782940704399448
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +294,7 @@ GameObject:
   - component: {fileID: 4219782940704399449}
   - component: {fileID: 4219782940704399451}
   - component: {fileID: 4219782940704399450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardBackside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
