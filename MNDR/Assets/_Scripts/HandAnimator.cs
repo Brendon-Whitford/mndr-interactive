@@ -79,10 +79,10 @@ public class HandAnimator : MonoBehaviour
         //float gripValue = GripAction.action.ReadValue<float>();
         //bool TriggerBool = TriggerAction.action.ReadValue<bool>();
         //bool GripBool = GripAction.action.ReadValue<bool>();
-        anim.SetFloat("RHCloseF", RGripAction.ReadValue<float>());
-        anim.SetFloat("LHCloseF", LGripAction.ReadValue<float>());
-        anim.SetFloat("RHPinchF", RTriggerAction.ReadValue<float>());
-        anim.SetFloat("LHPinchF", LTriggerAction.ReadValue<float>());
+        anim.SetFloat("RHPinchF", RGripAction.ReadValue<float>());
+        anim.SetFloat("LHPinchF", LGripAction.ReadValue<float>());
+        anim.SetFloat("RHCloseF", RTriggerAction.ReadValue<float>());
+        anim.SetFloat("LHCloseF", LTriggerAction.ReadValue<float>());
         // anim.SetBool("LHPinch", true);
         //anim.SetFloat("LHClose", gripValue);
         //anim.SetBool("RHPinch", true);
