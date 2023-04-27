@@ -25,8 +25,12 @@ public class GenericInteractionActivity : MonoBehaviour
 
     [Header("Offset for spawning the reward in relation to the player")]
     [SerializeField]
-    private int offset = 2;
-    
+    private int xOffset = 0;
+    [SerializeField]
+    private int yOffset = 0;
+    [SerializeField]
+    private int zOffset = 0;
+
     //count for completed interactions
     private int completedInteractions = 0;
 
@@ -48,7 +52,7 @@ public class GenericInteractionActivity : MonoBehaviour
     void OnComplete() {
         // If the reward has been set in the inspector
         if(card != null) {
-            Instantiate(card, new Vector3(playerPos.position.x + offset, playerPos.position.y + offset, playerPos.position.z + offset), transform.rotation);
+            Instantiate(card, new Vector3(playerPos.position.x + xOffset, playerPos.position.y + yOffset, playerPos.position.z + zOffset), transform.rotation);
         } else {
             Debug.Log("Activity" + this.name + "Complete");
         }
