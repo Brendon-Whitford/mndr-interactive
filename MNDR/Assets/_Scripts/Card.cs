@@ -6,7 +6,6 @@ public class Card : MonoBehaviour
 {
     public bool collected = false;
     public GameObject button;
-    public IDscript idScript;
 
     // Start is called before the first frame update
     void Start()
