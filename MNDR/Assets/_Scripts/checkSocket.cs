@@ -14,13 +14,15 @@ public class checkSocket : MonoBehaviour
 
     public void socketCheck()
     {
-       // Debug.Log("ItemDetected");
+        Debug.Log("ItemDetected");
 
         GameObject itemSocketed = socket.selectTarget.gameObject;
         //Debug.Log(itemSocketed);
 
         Destroy(itemSocketed);
-      
+        //Destroy(itemSocketed);
+       // DontDestroyOnLoad(item);
+        //Debug.Log(item);
        
     
     }
