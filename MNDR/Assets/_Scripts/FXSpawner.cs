@@ -37,6 +37,7 @@ public class FXSpawner : MonoBehaviour
             yFloat = Random.Range(this.transform.position.y - yBound, this.transform.position.y + yBound);
             zFloat = Random.Range(this.transform.position.z - zBound, this.transform.position.z  + zBound);
 
+            // spawn location
             Vector3 spawnPos = new Vector3(xFloat, yFloat, zFloat);
 
             //Instantiate effect
@@ -48,11 +49,13 @@ public class FXSpawner : MonoBehaviour
     // void Update() {
     //     OnDrawGizmos();
     // }
+
+    // this fucntion is only called inside of the scene, not while the game is running
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(xBound, yBound, zBound));
-        
-    }
 
+        // drawing a cube
+        Gizmos.DrawWireCube(transform.position, new Vector3(xBound, yBound, zBound));
+    }
 }

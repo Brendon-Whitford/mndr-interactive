@@ -63,11 +63,10 @@ public class IDscript : MonoBehaviour
         this.GetComponent<Button>().interactable = true;
         Destroy(recentItem);
     }
+
     public void checkCollected()
     {
-       
-             this.gameObject.GetComponent<Button>().interactable = true;
-        
+        this.gameObject.GetComponent<Button>().interactable = true;
     }
 
     private void FixedUpdate()
