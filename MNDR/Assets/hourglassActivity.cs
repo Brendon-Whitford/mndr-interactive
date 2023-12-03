@@ -8,7 +8,10 @@ public class hourglassActivity : MonoBehaviour
 
     public bool complete = false;
     void OnTriggerEnter(Collider o) {
-        if(o.tag == "Pedestal") {
+
+        // incrementing the increment function if the activity is complete
+        // used to show how many activitys have been complete
+        if (o.tag == "Pedestal") {
             if(!complete) {
             handler.increment();
             complete = true;

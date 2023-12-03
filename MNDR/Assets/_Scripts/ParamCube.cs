@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// transforming the local scale of the gameObject this is attached too
+//it is based one whether or not the bool _useBuffer is false or true
+
 public class ParamCube : MonoBehaviour
 {
     public int _band;

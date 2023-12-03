@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * this script is just comparing values between all of these floats 
+ * They are setting the frequencey for audio that is going to be played
+*/
+
 [RequireComponent (typeof (AudioSource))]
 public class AudioPeer : MonoBehaviour
 {

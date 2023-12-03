@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// setting the gameObject scroller to ture or false based on whether or not it is active in the Hierarchy
+
 public class togglescroller : MonoBehaviour
 {
     public GameObject scroller;

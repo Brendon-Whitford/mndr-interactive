@@ -15,6 +15,7 @@ public class OrbitAroundObject : MonoBehaviour
 
     void FixedUpdate()
     {
+        // rotate around a gameObject, the axis, and the speed
         transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), rotateSpeed);
     }
 }
