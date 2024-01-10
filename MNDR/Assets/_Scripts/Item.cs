@@ -39,6 +39,7 @@ public  class Item: MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // if the player or the hand collide with the item then it will be added to the inventory
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "PlayerHands")
         {
             
@@ -54,6 +55,8 @@ public  class Item: MonoBehaviour
             }
         }
     }
+
+    // same thing but as a trigger
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerHands")

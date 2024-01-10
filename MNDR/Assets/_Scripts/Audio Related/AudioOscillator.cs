@@ -16,10 +16,12 @@ public class AudioOscillator : MonoBehaviour
    
     void OnAudioFilterRead(float[] data, int channels)
     {
+        // checking the length of data, addting to channels
         for(int i = 0 ; i < data.Length ; i += channels)
         {  
             phase += 2 * Mathf.PI * frequency / sampleRate;
  
+            // creating the sine wave with phase
             data[i] = Mathf.Sin(phase);
  
             if (phase >= 2 * Mathf.PI)
@@ -29,6 +31,7 @@ public class AudioOscillator : MonoBehaviour
         }
     }
 
+    // setting frequency
     public void SetFrequency(float freq) {
         frequency += freq;
     }

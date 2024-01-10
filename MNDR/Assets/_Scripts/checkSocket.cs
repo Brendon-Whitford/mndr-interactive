@@ -16,9 +16,11 @@ public class checkSocket : MonoBehaviour
     {
         Debug.Log("ItemDetected");
 
+        // creating a gameObject for socket
         GameObject itemSocketed = socket.selectTarget.gameObject;
         //Debug.Log(itemSocketed);
 
+        // destroying it
         Destroy(itemSocketed);
         //Destroy(itemSocketed);
        // DontDestroyOnLoad(item);

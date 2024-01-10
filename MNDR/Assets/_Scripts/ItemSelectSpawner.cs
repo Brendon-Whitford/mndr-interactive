@@ -8,6 +8,8 @@ public class ItemSelectSpawner : MonoBehaviour
     //public GameObject spawnItem;
     public int compareINT;
     private displayCase displaySC;
+
+    [Header("List of Spawnables & Spawned Items")]
     public List<ItemToSpawn> spawnables = new List<ItemToSpawn>();
     public List<GameObject> spawnedItems = new List<GameObject>();
     
@@ -22,10 +24,10 @@ public class ItemSelectSpawner : MonoBehaviour
     }
     public void SpawnItem(/*int IDpass*/)
     {
-       
+       // grabbing each item in spawnables list
         foreach (var item in spawnables)
         {
-            
+            // comapring the index, isCollected, and isSpawned
             if(item.ID == compareINT &&  item.isCollected == true && item.isSpawned == false )
             {
                 Debug.Log(compareINT);
@@ -33,8 +35,12 @@ public class ItemSelectSpawner : MonoBehaviour
                  {
 
                  }*/
+
+                // instantiated those items
                Instantiate(item.enemyPrefab,spawnDisplay.transform.position,spawnDisplay.transform.localRotation);
                 //spawnedItems.Add(newItem);
+
+                // setting the bool back to true
                 item.isSpawned = true;
             }
         }

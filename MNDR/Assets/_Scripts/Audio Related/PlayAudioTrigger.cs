@@ -8,9 +8,13 @@ using UnityEngine;
 // elias@willerup.com
 
 public class PlayAudioTrigger : MonoBehaviour {
-
+    [Header("Audio to Play")]
     public List<GameObject> audioToPlay;
+
+    [Header("Audio to Stop")]
     public List<GameObject> audioToStop;
+
+    [Header("Triggers to Disable")]
     public List<GameObject> audioTriggersToDisable;
 
     public bool syncWithAudio = true;
@@ -20,6 +24,7 @@ public class PlayAudioTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
+        // changing the audio
         if (collider.tag == "Player") {
             if (!syncWithAudio || audioToSync == null) {
                 SwitchAudio();
@@ -43,12 +48,17 @@ public class PlayAudioTrigger : MonoBehaviour {
     }
 
     void SwitchAudio() {
+        // audio to play
         for (int i=0; i < audioToPlay.Count; i++) {
             audioToPlay[i].GetComponent<AudioSource>().Play();
         }
+
+        // audio to stop
         for (int w=0; w < audioToStop.Count; w++) {
             audioToStop[w].GetComponent<AudioSource>().Stop();
         }
+
+        // setting audio triggers to false
         for (int k=0; k < audioTriggersToDisable.Count; k++) {
             audioTriggersToDisable[k].gameObject.SetActive(false);
         }

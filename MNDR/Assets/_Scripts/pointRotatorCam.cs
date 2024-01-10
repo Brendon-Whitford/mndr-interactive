@@ -24,8 +24,10 @@ public class pointRotatorCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // rotate around the camera
         cam.transform.RotateAround(transform.position, cam.transform.up, rotateSpeed);
+
+        // look at the camera
         cam.transform.LookAt(transform.position, Vector3.up);
         //cam.transform.localPosition = new Vector3(offsetx, offsety, 0f);
 
@@ -34,8 +36,6 @@ public class pointRotatorCam : MonoBehaviour
         foreach (var item in Lights)
         {
             item.transform.LookAt(transform.position, Vector3.up);
-        }
-
-        
+        } 
     }
 }

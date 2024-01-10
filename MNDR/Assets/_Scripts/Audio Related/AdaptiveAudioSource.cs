@@ -32,10 +32,12 @@ public class AdaptiveAudioSource : MonoBehaviour
         // "Playback has reached 123 seconds in. Switch to the new snapshot"
         if (this.GetComponent<AudioSource>().time > timeToChange && !switchedAlready)
         {
+            // grabing the AdaptiveAudioManager and calling the SetAdutioSnapshot method
             audioManager.GetComponent<AdaptiveAudioManager>().SetAudioSnapshot(snapshot, transitionTime);
             switchedAlready = true;
         }
         
+        // displaying the time for the AudioSource in the console if this bool is false
         if (debugPlaybackTime) {
             Debug.Log(this.GetComponent<AudioSource>().time);
         }

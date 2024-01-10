@@ -6,6 +6,7 @@ using UnityEngine;
 // This script should be placed on box trigger object.
 // When the player enters it, it tells the audio manager to switch snapshots.
 
+// require a box collider for this script to work
 [RequireComponent(typeof(BoxCollider))]
 public class AdaptiveAudioTriggerZone : MonoBehaviour {
 
@@ -20,6 +21,7 @@ public class AdaptiveAudioTriggerZone : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player") {
+            // grabing the AdaptiveAudioManager and calling the SetAdutioSnapshot method
             audioManager.GetComponent<AdaptiveAudioManager>().SetAudioSnapshot(snapshot, transitionTime);
             // Debug.Log("Switch audio");
         }
@@ -29,6 +31,7 @@ public class AdaptiveAudioTriggerZone : MonoBehaviour {
     void OnTriggerExit(Collider collider)
     {
         if (collider.tag == "Player") {
+            // grabing the AdaptiveAudioManager and calling the SetDefaultSnapshot method
             audioManager.GetComponent<AdaptiveAudioManager>().SetDefaultSnapshot(transitionTime);
         }
     } 
@@ -42,6 +45,7 @@ public class AdaptiveAudioTriggerZone : MonoBehaviour {
         Gizmos.DrawWireCube(Vector3.zero, GetComponent<BoxCollider>().size);        
     }  
 
+    // setting the color of the gizmos depending on the snapshot
     private Color GetGizmoColor()
     {
         switch (snapshot)
