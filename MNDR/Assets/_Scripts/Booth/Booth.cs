@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
  * This script was built for sitting the player at a booth inside of the hub world.
  * When the scene starts the player is sitting.
  * If the player points the right controller at the groud and presses A, then they can walk around.
- * If the player ponts the right controller at the booth and presses A, they will "sit" at the booth.
+ * If the player points the right controller at the booth and presses A, they will "sit" at the booth.
  */
 
 public class Booth : MonoBehaviour
