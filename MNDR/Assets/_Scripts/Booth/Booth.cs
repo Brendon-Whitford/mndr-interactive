@@ -15,6 +15,7 @@ public class Booth : MonoBehaviour
 {
     [Tooltip("This transform would be located in the Booth object as a child.")]
     [SerializeField] private Transform boothSittingTransform;
+    [SerializeField] private Transform exitTransform;
     [SerializeField] private Transform playerTransform;
     [Space]
     [Tooltip("Object used to shoot a raycast out of.")]
@@ -43,7 +44,6 @@ public class Booth : MonoBehaviour
     {
         if(Input.GetButtonDown("RightController_A"))
         {
-            // RaycastHit hit;
             // creating the point to shoot the ray cast
             Ray rightControllerRay = new(rightControllerTransform.position, rightControllerTransform.forward);
 
@@ -55,8 +55,10 @@ public class Booth : MonoBehaviour
                     // shooting the raycast
                     if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
                     {
-                        // enable the movement script
+                        // calling MovePlayer and enabling the movmment script
+                        MovePlayer(exitTransform);
                         XRMovement.enabled = true;
+
                         isSitting = false;
 
                         Debug.Log("Leaving booth");
