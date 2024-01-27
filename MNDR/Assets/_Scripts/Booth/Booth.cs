@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 /*
- * Ceated By Carson McMahan || 01/26/2024
+ * Created By Carson McMahan || 01/26/2024
  * This script was built for sitting the player at a booth inside of the hub world.
  * When the scene starts the player is sitting.
  * If the player points the right controller at the groud and presses A, then they can walk around.
