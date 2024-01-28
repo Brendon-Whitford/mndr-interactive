@@ -1,3 +1,13 @@
+/**
+* JukeboxAudio
+* Author: Aria Strasser
+* Description: This script goes on a Jukebox, which must have an AudioSource. 
+*              When an object tagged as a Record is touched to it, it will play
+*              the audio that is attached to the Record (Record must have an
+*              AudioSource with an AudioClip attached).
+*/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +28,8 @@ public class JukeboxAudio : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Record"))
         {
+            //GoHome goHome = other.transform.parent.GetComponent<GoHome>();
+
             //Stop any other AudioClips
 
             // Get the AudioClip from the record object
@@ -28,6 +40,7 @@ public class JukeboxAudio : MonoBehaviour
             audioSource.Play();
 
             // Put Record BACK
+            //goHome.returnHome();
         }
     }
 }
