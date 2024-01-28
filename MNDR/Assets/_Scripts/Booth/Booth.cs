@@ -13,7 +13,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Booth : MonoBehaviour
 {
-    [Tooltip("This transform would be located in the Booth object as a child.")]
+    [Tooltip("This transform will be located in the Booth object as a child.")]
     [SerializeField] private Transform boothSittingTransform;
     [SerializeField] private Transform exitTransform;
     [SerializeField] private Transform playerTransform;
