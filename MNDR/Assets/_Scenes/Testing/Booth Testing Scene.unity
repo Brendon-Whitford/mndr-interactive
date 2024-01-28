@@ -228,6 +228,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20404849}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &120168318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120168319}
+  m_Layer: 14
+  m_Name: ExitTransforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &120168319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120168318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 737639751}
+  - {fileID: 1353526026}
+  m_Father: {fileID: 1551878486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &171844069
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 171844069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.16, y: 1.784, z: -0}
+  m_LocalPosition: {x: -0.16, y: 1.784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -630,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737639751}
   m_Layer: 14
-  m_Name: ExitTransform
+  m_Name: RightTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,12 +677,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737639750}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.491, y: 1.675, z: -2.593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1551878486}
+  m_Father: {fileID: 120168319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745305398
 GameObject:
@@ -1126,6 +1159,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1353526025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353526026}
+  m_Layer: 14
+  m_Name: LeftTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353526026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353526025}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000104308114}
+  m_LocalPosition: {x: 1.491, y: 1.675, z: 2.593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 120168319}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1551878485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,11 +1220,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 171844070}
   - {fileID: 817918749}
   - {fileID: 243096132}
   - {fileID: 1158563152}
-  - {fileID: 171844070}
-  - {fileID: 737639751}
+  - {fileID: 120168319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1551878487
@@ -1175,9 +1239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23444dc4994f6340ab572e126d232d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boothSittingTransform: {fileID: 171844070}
-  exitTransform: {fileID: 737639751}
   playerTransform: {fileID: 915099483}
+  boothSittingTransform: {fileID: 171844070}
+  rightTransform: {fileID: 737639751}
+  leftTransform: {fileID: 1353526026}
   rightControllerTransform: {fileID: 1564467509}
   XRMovement: {fileID: 1170350537}
   boothLayerMask:
@@ -1186,7 +1251,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 32768
-  interactDistance: 20
+  interactDistance: 30
 --- !u!4 &1564467509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6792664454127053018, guid: 8b5ca4e8305bddf4d9efc194a0815820, type: 3}

@@ -13,12 +13,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Booth : MonoBehaviour
 {
+    [Header("Player")]
+    [SerializeField] private Transform playerTransform;
+
+    [Header("Sitting Transform")]
     [Tooltip("This transform will be located in the Booth object as a child.")]
     [SerializeField] private Transform boothSittingTransform;
-    [SerializeField] private Transform exitTransform;
-    [SerializeField] private Transform playerTransform;
-    [Space]
-    [Tooltip("Object used to shoot a raycast out of.")]
+
+    [Header("Exit Transforms")]
+    [SerializeField] private Transform rightTransform;
+    [SerializeField] private Transform leftTransform;
+
+    [Header("Right Controller")]
     [SerializeField] private Transform rightControllerTransform;
 
     [Header("Continuous Move Provider")]
@@ -53,22 +59,35 @@ public class Booth : MonoBehaviour
             {
                 case true:
                     // shooting the raycast
-                    if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
+                    if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
                     {
-                        // calling MovePlayer and enabling the movmment script
-                        MovePlayer(exitTransform);
-                        XRMovement.enabled = true;
+                        // distance between the hit position and a transform (right or left transform)
+                        float rightDistance = Vector3.Distance(hit.point, rightTransform.position);
+                        float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
 
+                        // enabling movement & setting isSitting to false
+                        XRMovement.enabled = true;
                         isSitting = false;
 
-                        Debug.Log("Leaving booth");
+                        if (rightDistance < leftDistance)
+                        {
+                            MovePlayer(rightTransform);
+
+                            Debug.Log("Leaving booth: " + rightTransform);
+                        }
+                        else
+                        {
+                            MovePlayer(leftTransform);
+
+                            Debug.Log("Leaving booth: " + leftTransform);
+                        }
                     }
                 break;
                 case false:
                     // shooting the raycast
                     if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
                     {
-                        // calling MovePlayer and disabling the movmment script
+                        // calling MovePlayer and disabling the movement script
                         MovePlayer(boothSittingTransform);
                         XRMovement.enabled = false;
 
@@ -84,7 +103,6 @@ public class Booth : MonoBehaviour
     private void MovePlayer(Transform transform)
     {
         // setting the player position and rotation to the parameter
-        playerTransform.position = transform.position;
-        playerTransform.rotation = transform.rotation;
+        playerTransform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 }
