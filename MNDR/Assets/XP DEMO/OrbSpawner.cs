@@ -16,11 +16,13 @@ public class OrbSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // press space the orbs will spawn
         if (Input.GetKeyDown("space")) SpawnOrbs();
     }
 
     public void SpawnOrbs()
     {
+        // spawning the orbs
         for (int i = 0; i < orbAmount; i++)
         {
             GameObject go = Instantiate(orb, transform.position, Quaternion.identity);
