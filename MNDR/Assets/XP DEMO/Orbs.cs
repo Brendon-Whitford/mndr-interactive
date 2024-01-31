@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this scipt is being used an exp manager, the idea was to have players collect things to level up
+
 public class Orbs : MonoBehaviour
 {
 
@@ -18,8 +20,10 @@ public class Orbs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // grabbing the player transform
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        // setting the movement vector to a Randomg.range
         movement = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         movement = movement.normalized * Random.Range(3f, 5f);
 
@@ -41,9 +45,11 @@ public class Orbs : MonoBehaviour
             speed += acceleration * Time.deltaTime;
         }
 
+        // giving the exp based on the distance between the orb and the player
         if (Vector3.Distance(player.transform.position, transform.position) < .5f) GiveXP();
     }
 
+    // giving the player exp
     void GiveXP()
     {
         Debug.Log("The player has received: " + xp.ToString() + " xp");
