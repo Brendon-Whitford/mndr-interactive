@@ -21,9 +21,9 @@ public class Booth : MonoBehaviour
     [SerializeField] private Transform boothSittingTransform;
 
     [Header("Exit Transforms")]
-    [SerializeField] private Transform rightTransform;
-    [SerializeField] private Transform leftTransform;
-
+    [SerializeField] private Transform exitTransform;
+    //[SerializeField] private Transform leftTransform;
+     
     [Header("Right Controller")]
     [SerializeField] private Transform rightControllerTransform;
 
@@ -62,25 +62,28 @@ public class Booth : MonoBehaviour
                     if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
                     {
                         // distance between the hit position and a transform (right or left transform)
-                        float rightDistance = Vector3.Distance(hit.point, rightTransform.position);
-                        float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
 
+                        //float rightDistance = Vector3.Distance(hit.point, exitTransform.position);
+                        //float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
                         // enabling movement & setting isSitting to false
+
+                        MovePlayer(exitTransform);
+
                         XRMovement.enabled = true;
                         isSitting = false;
 
-                        if (rightDistance < leftDistance)
-                        {
-                            MovePlayer(rightTransform);
+                        //if (rightDistance < leftDistance)
+                        //{
+                        //    MovePlayer(exitTransform);
 
-                            Debug.Log("Leaving booth: " + rightTransform);
-                        }
-                        else
-                        {
-                            MovePlayer(leftTransform);
+                        //    Debug.Log("Leaving booth: " + exitTransform);
+                        //}
+                        //else
+                        //{
+                        //    MovePlayer(leftTransform);
 
-                            Debug.Log("Leaving booth: " + leftTransform);
-                        }
+                        //    Debug.Log("Leaving booth: " + leftTransform);
+                        //}
                     }
                 break;
                 case false:
