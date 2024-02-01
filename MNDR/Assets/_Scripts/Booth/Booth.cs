@@ -15,20 +15,14 @@ public class Booth : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform rightControllerTransform;
+    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
 
-    [Header("Sitting Transform")]
+    [Header("Booth Transforms")]
     [Tooltip("This transform will be located in the Booth object as a child.")]
     [SerializeField] private Transform boothSittingTransform;
-
-    [Header("Exit Transforms")]
     [SerializeField] private Transform exitTransform;
     //[SerializeField] private Transform leftTransform;
-     
-    [Header("Right Controller")]
-    [SerializeField] private Transform rightControllerTransform;
-
-    [Header("Continuous Move Provider")]
-    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
 
     [Header("Interaction References")]
     [SerializeField] private LayerMask boothLayerMask;
