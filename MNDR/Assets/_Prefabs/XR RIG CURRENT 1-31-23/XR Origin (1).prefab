@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 102932192950168148}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0035665, y: -0.68, z: -0.098445}
+  m_LocalPosition: {x: 0.0035665, y: -1.032, z: -0.098445}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -474,8 +474,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.0036, z: 0.00015}
-  m_LocalScale: {x: -0.005987037, y: -0.005987037, z: -0.005987037}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.005987037, y: 0.005987037, z: 0.005987037}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 451402172671844424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1614,8 +1614,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.00034, y: 0.00343, z: -0}
-  m_LocalScale: {x: -0.005987037, y: -0.005987037, z: -0.005987037}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.005987037, y: 0.005987037, z: 0.005987037}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 451402172075239348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2802,7 +2802,7 @@ MonoBehaviour:
   m_Camera: {fileID: 451402171984353662}
   m_OriginBaseGameObject: {fileID: 451402172270758749}
   m_CameraFloorOffsetObject: {fileID: 451402172704339254}
-  m_RequestedTrackingOriginMode: 2
+  m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.1176
 --- !u!114 &451402172270758742
 MonoBehaviour:
@@ -2908,7 +2908,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451402172270758749}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
   m_Name: 
