@@ -15,9 +15,13 @@ public class Head : MonoBehaviour
     }
     private void LateUpdate()
     {
+        // setting the position of root object
         rootObject.position = transform.position + headBodyOffset;
+
+        // setting the forward transform to project a vector on a plane
         rootObject.forward = Vector3.ProjectOnPlane(followObject.up, Vector3.up).normalized;
 
+        // setting postions and rotation for the object this script is attached to
         transform.position = followObject.TransformPoint(positionOffset);
         transform.rotation = followObject.rotation * Quaternion.Euler(rotationOffset);
     }

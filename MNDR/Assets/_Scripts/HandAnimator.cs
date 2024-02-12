@@ -5,14 +5,18 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 public class HandAnimator : MonoBehaviour
 {
+    [Header("Input Actions")]
     [SerializeField] private InputAction LTriggerAction;
     [SerializeField] private InputAction RTriggerAction;
     [SerializeField] private InputAction LGripAction;
     [SerializeField] private InputAction RGripAction;
     //[SerializeField] private InputAction GripAction;
+
+
     public InputActionAsset inputaction;
     public Animator anim;
 
+    // finding actions maps and enabling them
     private void Start()
     {
         LTriggerAction = inputaction.FindActionMap("XRI LeftHand Interaction").FindAction("Activate Value");

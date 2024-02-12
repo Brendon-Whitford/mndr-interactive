@@ -9,23 +9,30 @@ using UnityEngine.Audio;
 
 public class AdaptiveAudioManager : MonoBehaviour {
 
+    // array of AudioMixers
     public AudioMixerSnapshot[] snapshotLevels;
 
+    // setting a default and current snapshot
     public int defaultSnapshot;
     private int currentSnapshot;
 
     void Start() {
+        // setting current = default
         currentSnapshot = defaultSnapshot;
     }
 
 	public void SetAudioSnapshot(int level, float transitionTime)
     {
+        // setting the currentSnapshot
         currentSnapshot = level;
+
+        // transition to the currentSnapshot at a specific rate of time
         snapshotLevels[currentSnapshot].TransitionTo(transitionTime);
     }
 
 	public void SetDefaultSnapshot(float transitionTime)
     {
+        // setting the defaultSnapshot at a specific rate of time
         snapshotLevels[defaultSnapshot].TransitionTo(transitionTime);
     }
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * this script is setting the inventory to true or false based on the rotation of th object
+*/
 public class InventLever : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,6 +25,7 @@ public class InventLever : MonoBehaviour
 
             Inventory.SetActive(true);
         }
+
         if (this.transform.localRotation.z < 0.50)
         {
             Inventory.SetActive(false);

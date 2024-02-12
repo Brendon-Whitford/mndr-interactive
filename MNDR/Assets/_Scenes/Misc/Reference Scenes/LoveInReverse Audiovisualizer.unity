@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1434,31 +1434,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.92305946
+      value: 5.4472637
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0265217
+      value: 3.026083
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.407647
+      value: -10.0675
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9908494
+      value: -0.9613268
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.1287975
+      value: -0.12492361
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04002236
+      value: 0.24340184
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457816, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.005202381
+      value: -0.031629868
       objectReference: {fileID: 0}
     - target: {fileID: 3043361875583457819, guid: 1c920670c51d6554692e16cb62d19207, type: 3}
       propertyPath: m_ClearFlags
@@ -3624,6 +3624,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 11400000, guid: 9d1af4dbeb4d5804c80d8b2e7f65f3de, type: 2}
+--- !u!114 &1671053123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671053117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1695158080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0119fcf4836da264a8686458417c50aa, type: 3}
@@ -3938,6 +3971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798627777}
   - component: {fileID: 1798627776}
+  - component: {fileID: 1798627778}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -4022,6 +4056,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1798627778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798627775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &1828825765
 PrefabInstance:
   m_ObjectHideFlags: 0
