@@ -1,11 +1,16 @@
 /**
 * AudioOrb
 * Author: Aria Strasser
-* Description: This script goes on an audio orb, which must have an AudioSource. 
-*              The functions on this script need to be attributed to the SelectEntered
-*              and SelectExited Interactable Events respectively. When the user picks
-*              up the orb, it will play an audio stem, and when the user lets go, it
-*              will stop playing.
+* Description: This script goes on an audio orb, which must have an AudioSource.
+*              The AudioSource should have a group (the stem you want to play) and a
+*              clip of the audio you want played. Play on Awake and Loop must be checked.
+*              The functions on this script also need to be attributed to the SelectEntered
+*              and SelectExited Interactable Events respectively. Orbs must also be tagged.
+*              
+*              When the user picks up the orb, it will play an audio stem, and when the 
+*              user lets go, it will stop playing.
+*              
+*              Works in conjunction with OrbPedestal and SocketManager scripts
 */
 
 using System.Collections;
@@ -16,7 +21,6 @@ using UnityEngine.Audio;
 
 public class AudioOrb : MonoBehaviour
 {
-    //public AudioMixerSnapshot audioStem;
     private AudioSource audioSource;
 
     void Start()
@@ -28,7 +32,7 @@ public class AudioOrb : MonoBehaviour
     // Start Music on Pick Up
     public void PickedUp()
     {
-        audioSource.volume = 0.8;
+        audioSource.volume = 0.8f;
     }
 
     // Stop Music on Put Down
