@@ -2,8 +2,7 @@
 * AudioOrb
 * Author: Aria Strasser
 * Description: This script goes on an audio orb, which must have an AudioSource. 
-*              An audio stem must be dragged into the audioStem variable. The
-*              functions on this script need to be attributed to the SelectEntered
+*              The functions on this script need to be attributed to the SelectEntered
 *              and SelectExited Interactable Events respectively. When the user picks
 *              up the orb, it will play an audio stem, and when the user lets go, it
 *              will stop playing.
@@ -17,22 +16,24 @@ using UnityEngine.Audio;
 
 public class AudioOrb : MonoBehaviour
 {
-    public AudioMixerSnapshot audioStem;
+    //public AudioMixerSnapshot audioStem;
     private AudioSource audioSource;
 
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0;
     }
 
+    // Start Music on Pick Up
     public void PickedUp()
     {
-        audioStem.TransitionTo(0.5f);
+        audioSource.volume = 0.8;
     }
 
+    // Stop Music on Put Down
     public void PutDown()
     {
-        audioSource.Stop();
+        audioSource.volume = 0;
     }
 }
