@@ -27,18 +27,24 @@ public class OrbPedestal : MonoBehaviour
 
     private XRSocketInteractor socketInteractor;
     private AudioSource audioSource;
+    private AudioSource orbAudioSource;
 
     public string orbName;
     public bool activated = false;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0;
+    }
 
     void Start()
     {
         socketInteractor = GetComponent<XRSocketInteractor>();
         socketInteractor.onSelectEntered.AddListener(HandleSelectEntered);
-        //socketInteractor.onSelectExited.AddListener(HandleSelectExited);
+        socketInteractor.onSelectExited.AddListener(HandleSelectExited);
 
-        audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0;
+        
     }
 
 
@@ -50,8 +56,12 @@ public class OrbPedestal : MonoBehaviour
         {
             audioSource.volume = 0.8f;
 
-            // Turn off the XR interactor
-            interactable.GetComponent<XRBaseInteractor>().enabled = false;
+            orbAudioSource = interactable.GetComponent<AudioSource>();
+
+            // Turn off the XR interactor (was causing an error and may not be needed)
+            //interactable.GetComponent<XRBaseInteractor>().enabled = false;
+
+            orbAudioSource.volume = 0;
 
             // Added feedback??
 
@@ -67,18 +77,22 @@ public class OrbPedestal : MonoBehaviour
         }
         else
         {
+            audioSource.volume = 0;
             Debug.Log("Incorrect");
         }
     }
 
 
-    // This is for if we want to do something when the user picks it back up
+    // User Picking Up Orb
 
-    /*private void HandleSelectExited(XRBaseInteractable interactable)
+    private void HandleSelectExited(XRBaseInteractable interactable)
     {
-        if (interactable.CompareTag("YourTag"))
+        audioSource.volume = 0;
+
+        if (interactable.CompareTag(orbName))
         {
-            interactable.GetComponent<XRBaseInteractor>().enabled = true;
+            activated = false;
+            socketManager.correctSockets--;
         }
-    }*/
+    }
 }

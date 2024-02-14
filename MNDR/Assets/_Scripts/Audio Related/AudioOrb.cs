@@ -23,11 +23,16 @@ public class AudioOrb : MonoBehaviour
 {
     private AudioSource audioSource;
 
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = 0;
     }
+
+    /*void Start()
+    {
+        
+    }*/
 
     // Start Music on Pick Up
     public void PickedUp()

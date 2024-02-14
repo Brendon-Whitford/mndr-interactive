@@ -21,13 +21,15 @@ public class SocketManager : MonoBehaviour
     public int correctSockets = 0;
     public int totalSockets = 3;
 
+    public bool canBeActivated = true;
+
     public void CheckSockets()
     {
         if (correctSockets == totalSockets)
         {
             // All sockets have the correct orb
             Debug.Log("Success!! All sockets have the correct interactable!");
-
+            canBeActivated = false;
             // Add an audio listener and have its audio start here
         }
     }
