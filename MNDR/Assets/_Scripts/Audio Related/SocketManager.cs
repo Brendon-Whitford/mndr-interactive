@@ -25,7 +25,7 @@ public class SocketManager : MonoBehaviour
 
     public void CheckSockets()
     {
-        if (correctSockets == totalSockets)
+        if (correctSockets == totalSockets && canBeActivated == true)
         {
             // All sockets have the correct orb
             Debug.Log("Success!! All sockets have the correct interactable!");

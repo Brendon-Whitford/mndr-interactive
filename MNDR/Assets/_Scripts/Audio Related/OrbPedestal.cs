@@ -27,7 +27,6 @@ public class OrbPedestal : MonoBehaviour
 
     private XRSocketInteractor socketInteractor;
     private AudioSource audioSource;
-    private AudioSource orbAudioSource;
 
     public string orbName;
     public bool activated = false;
@@ -56,12 +55,12 @@ public class OrbPedestal : MonoBehaviour
         {
             audioSource.volume = 0.8f;
 
-            orbAudioSource = interactable.GetComponent<AudioSource>();
+            // I hate XR sometimes
+            //AudioSource orbAudioSource = interactable.GetComponent<AudioSource>();
+            //orbAudioSource.volume = 0f;
 
             // Turn off the XR interactor (was causing an error and may not be needed)
             //interactable.GetComponent<XRBaseInteractor>().enabled = false;
-
-            orbAudioSource.volume = 0;
 
             // Added feedback??
 
@@ -93,6 +92,28 @@ public class OrbPedestal : MonoBehaviour
         {
             activated = false;
             socketManager.correctSockets--;
+        }
+    }
+
+
+    // We do it the clunky way because XR had a fit
+    public void OnTriggerEnter(Collider other)
+    {
+        AudioSource orbAudioSource = other.GetComponent<AudioSource>();
+        
+        if (orbAudioSource != null)
+        {
+            orbAudioSource.volume = 0f;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        AudioSource orbAudioSource = other.GetComponent<AudioSource>();
+
+        if (orbAudioSource != null)
+        {
+            orbAudioSource.volume = 0.8f;
         }
     }
 }
