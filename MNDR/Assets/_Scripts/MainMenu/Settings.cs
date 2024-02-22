@@ -1,3 +1,10 @@
+/**
+* Settings
+* Author: Hayden Dalton
+* Description: Contains the functions put on the toggle buttons for turning and Movement
+*              Attach these functions to the correct buttons and SetVolume to slider bar
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +15,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Settings : MonoBehaviour
 {
     [Header ("Audio")]
-    [SerializeField] private AudioMixer myAudioMixer;
+    [SerializeField] private AudioMixer HubMixer;
+    [SerializeField] private AudioMixer ChapelMixer;
+    [SerializeField] private AudioMixer SineMixer;
 
     [Header ("Turning Buttons")]
     public ActionBasedSnapTurnProvider snapTurn;
@@ -25,7 +34,9 @@ public class Settings : MonoBehaviour
     public void SetVolume (float sliderValue) {
         //Changes slider value to logarithic value which is what volumeMixers use
         //Min Value of Slider set to 0.0001 because of this
-        myAudioMixer.SetFloat("Test", Mathf.Log10(sliderValue) * 20);
+        HubMixer.SetFloat("HubMix", Mathf.Log10(sliderValue) * 20);
+        ChapelMixer.SetFloat("ChapelMix", Mathf.Log10(sliderValue) * 20);
+        SineMixer.SetFloat("SineMix", Mathf.Log10(sliderValue) * 20);
     }
 
     //Put this on the snap turn button
