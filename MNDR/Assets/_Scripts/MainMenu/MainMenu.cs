@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     //Chooses which seen to go on, set this for the start button
     public void GoToHub(){
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit(){
