@@ -15,20 +15,14 @@ public class Booth : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform rightControllerTransform;
+    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
 
-    [Header("Sitting Transform")]
+    [Header("Booth Transforms")]
     [Tooltip("This transform will be located in the Booth object as a child.")]
     [SerializeField] private Transform boothSittingTransform;
-
-    [Header("Exit Transforms")]
-    [SerializeField] private Transform rightTransform;
-    [SerializeField] private Transform leftTransform;
-
-    [Header("Right Controller")]
-    [SerializeField] private Transform rightControllerTransform;
-
-    [Header("Continuous Move Provider")]
-    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
+    [SerializeField] private Transform exitTransform;
+    //[SerializeField] private Transform leftTransform;
 
     [Header("Interaction References")]
     [SerializeField] private LayerMask boothLayerMask;
@@ -55,47 +49,49 @@ public class Booth : MonoBehaviour
 
             Debug.Log("Pressed");
 
-            switch(isSitting)
+            if(isSitting == true)
             {
-                case true:
-                    // shooting the raycast
-                    if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
-                    {
-                        // distance between the hit position and a transform (right or left transform)
-                        float rightDistance = Vector3.Distance(hit.point, rightTransform.position);
-                        float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
+                // shooting the raycast
+                if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
+                {
+                    // distance between the hit position and a transform (right or left transform)
 
-                        // enabling movement & setting isSitting to false
-                        XRMovement.enabled = true;
-                        isSitting = false;
+                    //float rightDistance = Vector3.Distance(hit.point, exitTransform.position);
+                    //float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
+                    // enabling movement & setting isSitting to false
 
-                        if (rightDistance < leftDistance)
-                        {
-                            MovePlayer(rightTransform);
+                    MovePlayer(exitTransform);
 
-                            Debug.Log("Leaving booth: " + rightTransform);
-                        }
-                        else
-                        {
-                            MovePlayer(leftTransform);
+                    XRMovement.enabled = true;
+                    isSitting = false;
 
-                            Debug.Log("Leaving booth: " + leftTransform);
-                        }
-                    }
-                break;
-                case false:
-                    // shooting the raycast
-                    if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
-                    {
-                        // calling MovePlayer and disabling the movement script
-                        MovePlayer(boothSittingTransform);
-                        XRMovement.enabled = false;
+                    //if (rightDistance < leftDistance)
+                    //{
+                    //    MovePlayer(exitTransform);
 
-                        isSitting = true;
+                    //    Debug.Log("Leaving booth: " + exitTransform);
+                    //}
+                    //else
+                    //{
+                    //    MovePlayer(leftTransform);
 
-                        Debug.Log("Hit Booth");
-                    }
-                break;
+                    //    Debug.Log("Leaving booth: " + leftTransform);
+                    //}
+                }
+            }
+            else
+            {
+                // shooting the raycast
+                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
+                {
+                    // calling MovePlayer and disabling the movement script
+                    MovePlayer(boothSittingTransform);
+                    XRMovement.enabled = false;
+
+                    isSitting = true;
+
+                    Debug.Log("Hit Booth");
+                }
             }
         }
     }
