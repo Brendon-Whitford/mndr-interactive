@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0068775257, g: 0.013278846, b: 0.13421693, a: 1}
+  m_IndirectSpecularColor: {r: 0.006868708, g: 0.013177948, b: 0.13412754, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16433,10 +16433,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LongPlate (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 4319371241763406118, guid: f3b37821a89321047a5ffea6471083dd, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27094,10 +27090,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1166169411}
     m_Modifications:
     - target: {fileID: 2606744367224880575, guid: 3683168668972254399a99ffe2685101, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 300.00012
-      objectReference: {fileID: 0}
-    - target: {fileID: 2606744367224880575, guid: 3683168668972254399a99ffe2685101, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.795
       objectReference: {fileID: 0}
@@ -27140,10 +27132,6 @@ PrefabInstance:
     - target: {fileID: 3415651135061501701, guid: 3683168668972254399a99ffe2685101, type: 3}
       propertyPath: m_Name
       value: Sugar (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3415651135061501701, guid: 3683168668972254399a99ffe2685101, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40539,10 +40527,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HotSauce (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5907735697568045974, guid: 1f0482d49ed6f704a9ec08c351459249, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6536885788397814060, guid: 1f0482d49ed6f704a9ec08c351459249, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.546
@@ -42696,13 +42680,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111014814}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0.27, y: 0.33, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1866130315}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!1 &2111587329
 GameObject:
   m_ObjectHideFlags: 0
@@ -43134,29 +43118,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1166169411}
     m_Modifications:
-    - target: {fileID: 119362789440612055, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2468627944955608272, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
       propertyPath: m_Name
       value: Cup (14)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468627944955608272, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43197,10 +43161,6 @@ PrefabInstance:
     - target: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43798,6 +43758,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7104372498983490057, guid: 5fa79c582fd2aa04f89e37c23c0d8213, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7233159054065966114, guid: 2663ef3121863b7498122c07c8f8bfa1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43947,18 +43911,6 @@ PrefabInstance:
     - target: {fileID: 4977550938163509904, guid: bc119675220a81f468531f5cfde0b316, type: 3}
       propertyPath: m_Name
       value: Bowl
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977550938163509904, guid: bc119675220a81f468531f5cfde0b316, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5645262787255312426, guid: bc119675220a81f468531f5cfde0b316, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 149.99995
-      objectReference: {fileID: 0}
-    - target: {fileID: 5645262787255312426, guid: bc119675220a81f468531f5cfde0b316, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 149.99995
       objectReference: {fileID: 0}
     - target: {fileID: 5645262787255312426, guid: bc119675220a81f468531f5cfde0b316, type: 3}
       propertyPath: m_LocalPosition.x
