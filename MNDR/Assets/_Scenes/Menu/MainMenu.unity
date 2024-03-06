@@ -5091,6 +5091,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451402172270758736, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 451402172270758739, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5135,14 +5139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 451402172270758749, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070781317733695478, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
-      propertyPath: m_SelectAction.m_Reference
-      value: 
-      objectReference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6294,6 +6290,7 @@ GameObject:
   - component: {fileID: 1678042123}
   - component: {fileID: 1678042122}
   - component: {fileID: 1678042125}
+  - component: {fileID: 1678042126}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6390,6 +6387,18 @@ MonoBehaviour:
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
+--- !u!114 &1678042126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678042121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1294297ecfd3b2141be30fbe4901e7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680578927
 GameObject:
   m_ObjectHideFlags: 0
@@ -8131,7 +8140,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1798984792}
   - {fileID: 561482240}
-  - {fileID: 1678042124}
   - {fileID: 469156767}
   - {fileID: 775984990}
   - {fileID: 1521997201}
@@ -8140,3 +8148,4 @@ SceneRoots:
   - {fileID: 165156282}
   - {fileID: 1704240173}
   - {fileID: 1243133169}
+  - {fileID: 1678042124}
