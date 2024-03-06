@@ -30,6 +30,7 @@ public class Settings : MonoBehaviour
     public TeleportationProvider teleportation;
     public Toggle toggleConMove;
     public Toggle toggleTeleport;
+    public ActivateTeleporation activateTeleportation;
 
     public void SetVolume (float sliderValue) {
         //Changes slider value to logarithic value which is what volumeMixers use
@@ -72,6 +73,7 @@ public class Settings : MonoBehaviour
             toggleTeleport.isOn = false;
             toggleTeleport.interactable = true;
             toggleConMove.interactable = false;
+            activateTeleportation.canTeleport = false;
 
             teleportation.enabled = false;
             continuousMove.enabled = true;
@@ -85,6 +87,7 @@ public class Settings : MonoBehaviour
             toggleConMove.isOn = false;
             toggleTeleport.interactable = false;
             toggleConMove.interactable = true;
+            activateTeleportation.canTeleport = true;
 
             teleportation.enabled = true;
             continuousMove.enabled = false;
