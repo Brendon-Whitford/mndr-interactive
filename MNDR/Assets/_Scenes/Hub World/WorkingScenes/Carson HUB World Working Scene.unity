@@ -10342,7 +10342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 533001780}
   m_Layer: 14
-  m_Name: Exit Transform
+  m_Name: ExitTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38948,10 +38948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23444dc4994f6340ab572e126d232d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  rightControllerTransform: {fileID: 0}
-  XRMovement: {fileID: 0}
-  boothSittingTransform: {fileID: 136754717}
+  playerTransform: {fileID: 451402172270758739, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
+  XRMovement: {fileID: 451402172270758736, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
+  sittingTransform: {fileID: 136754717}
   exitTransform: {fileID: 533001780}
   boothLayerMask:
     serializedVersion: 2

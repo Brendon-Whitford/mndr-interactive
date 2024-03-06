@@ -15,14 +15,13 @@ public class Booth : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private Transform playerTransform;
-    [SerializeField] private Transform rightControllerTransform;
     [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
+    private GameObject rightController;
 
     [Header("Booth Transforms")]
     [Tooltip("This transform will be located in the Booth object as a child.")]
-    [SerializeField] private Transform boothSittingTransform;
+    [SerializeField] private Transform sittingTransform;
     [SerializeField] private Transform exitTransform;
-    //[SerializeField] private Transform leftTransform;
 
     [Header("Interaction References")]
     [SerializeField] private LayerMask boothLayerMask;
@@ -31,10 +30,15 @@ public class Booth : MonoBehaviour
 
     bool isSitting;
 
+    private void Awake()
+    {
+        rightController = GameObject.Find("RightHand Controller");
+    }
+
     private void Start()
     {
         // player starts sitting at the booth
-        MovePlayer(boothSittingTransform);
+        MovePlayer(sittingTransform);
         XRMovement.enabled = false;
 
         isSitting = true; 
@@ -45,7 +49,7 @@ public class Booth : MonoBehaviour
         if(Input.GetButtonDown("RightController_A"))
         {
             // creating the point to shoot the ray cast
-            Ray rightControllerRay = new(rightControllerTransform.position, rightControllerTransform.forward);
+            Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
 
             Debug.Log("Pressed");
 
@@ -54,29 +58,11 @@ public class Booth : MonoBehaviour
                 // shooting the raycast
                 if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
                 {
-                    // distance between the hit position and a transform (right or left transform)
-
-                    //float rightDistance = Vector3.Distance(hit.point, exitTransform.position);
-                    //float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
                     // enabling movement & setting isSitting to false
-
                     MovePlayer(exitTransform);
 
                     XRMovement.enabled = true;
                     isSitting = false;
-
-                    //if (rightDistance < leftDistance)
-                    //{
-                    //    MovePlayer(exitTransform);
-
-                    //    Debug.Log("Leaving booth: " + exitTransform);
-                    //}
-                    //else
-                    //{
-                    //    MovePlayer(leftTransform);
-
-                    //    Debug.Log("Leaving booth: " + leftTransform);
-                    //}
                 }
             }
             else
@@ -85,12 +71,12 @@ public class Booth : MonoBehaviour
                 if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
                 {
                     // calling MovePlayer and disabling the movement script
-                    MovePlayer(boothSittingTransform);
+                    MovePlayer(sittingTransform);
                     XRMovement.enabled = false;
 
                     isSitting = true;
 
-                    Debug.Log("Hit Booth");
+                    // Debug.Log("Hit Booth");
                 }
             }
         }
