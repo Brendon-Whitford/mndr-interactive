@@ -28,20 +28,20 @@ public class Booth : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
 
-    bool isSitting;
+    public bool isSitting;
 
     private void Awake()
     {
-        rightController = GameObject.Find("RightHand Controller");
+        
     }
 
     private void Start()
     {
         // player starts sitting at the booth
-        MovePlayer(sittingTransform);
-        XRMovement.enabled = false;
-
-        isSitting = true; 
+        //MovePlayer(sittingTransform);
+        //XRMovement.enabled = false;
+        rightController = GameObject.Find("RightHand Controller");
+        isSitting = false; 
     }
 
     private void Update()
@@ -63,6 +63,7 @@ public class Booth : MonoBehaviour
 
                     XRMovement.enabled = true;
                     isSitting = false;
+                    Debug.Log("Hit Ground");
                 }
             }
             else
@@ -76,7 +77,7 @@ public class Booth : MonoBehaviour
 
                     isSitting = true;
 
-                    // Debug.Log("Hit Booth");
+                    Debug.Log("Hit Booth");
                 }
             }
         }
