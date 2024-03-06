@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -13,9 +14,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Booth : MonoBehaviour
 {
-    [Header("Player")]
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
+    // player references
+    private GameObject player;
+    private ActionBasedContinuousMoveProvider XRMovement;
     private GameObject rightController;
 
     [Header("Booth Transforms")]
@@ -27,20 +28,18 @@ public class Booth : MonoBehaviour
     [SerializeField] private LayerMask boothLayerMask;
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
-
-    public bool isSitting;
+    [Space]
+    [SerializeField] private bool isSitting;
 
     private void Awake()
     {
-        
+        rightController = GameObject.Find("RightHand Controller");
+        player = GameObject.Find("XR Origin (1)");
+        XRMovement = FindFirstObjectByType<ActionBasedContinuousMoveProvider>();
     }
 
     private void Start()
     {
-        // player starts sitting at the booth
-        //MovePlayer(sittingTransform);
-        //XRMovement.enabled = false;
-        rightController = GameObject.Find("RightHand Controller");
         isSitting = false; 
     }
 
@@ -53,20 +52,7 @@ public class Booth : MonoBehaviour
 
             Debug.Log("Pressed");
 
-            if(isSitting == true)
-            {
-                // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
-                {
-                    // enabling movement & setting isSitting to false
-                    MovePlayer(exitTransform);
-
-                    XRMovement.enabled = true;
-                    isSitting = false;
-                    Debug.Log("Hit Ground");
-                }
-            }
-            else
+            if(isSitting == false)
             {
                 // shooting the raycast
                 if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
@@ -80,12 +66,26 @@ public class Booth : MonoBehaviour
                     Debug.Log("Hit Booth");
                 }
             }
+            else
+            {
+                // shooting the raycast
+                if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
+                {
+                    // enabling movement & setting isSitting to false
+                    MovePlayer(exitTransform);
+                    XRMovement.enabled = true;
+
+                    isSitting = false;
+
+                    Debug.Log("Hit Ground");
+                }
+            }
         }
     }
 
     private void MovePlayer(Transform transform)
     {
         // setting the player position and rotation to the parameter
-        playerTransform.SetPositionAndRotation(transform.position, transform.rotation);
+        player.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 }

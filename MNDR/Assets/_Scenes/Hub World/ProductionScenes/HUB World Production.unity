@@ -27667,7 +27667,7 @@ Transform:
   m_GameObject: {fileID: 1307278905}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.038, z: -0.571}
+  m_LocalPosition: {x: -0, y: -0.5, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35718,7 +35718,7 @@ Transform:
   m_GameObject: {fileID: 1713272367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071069}
-  m_LocalPosition: {x: 1.233, y: 0.234, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41690,8 +41690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23444dc4994f6340ab572e126d232d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 451402172270758739, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
-  XRMovement: {fileID: 451402172270758736, guid: 56b8299bd6666654cb9ed737e3de05d6, type: 3}
   sittingTransform: {fileID: 1307278906}
   exitTransform: {fileID: 1713272368}
   boothLayerMask:
@@ -41701,6 +41699,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   interactDistance: 25
+  isSitting: 0
 --- !u!1001 &2014842555
 PrefabInstance:
   m_ObjectHideFlags: 0
