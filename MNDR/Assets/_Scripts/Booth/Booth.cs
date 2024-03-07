@@ -54,49 +54,32 @@ public class Booth : MonoBehaviour
             // creating the point to shoot the ray cast using the rightController
             Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
 
-            if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && !isSitting)
+            if (isSitting == false)
             {
-                MovePlayer(sittingTransform);
+                // disbale movement
                 XRMovement.enabled = false;
 
-                isSitting = true;
-            }
-            else if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask) && isSitting)
-            {
-                MovePlayer(exitTransform);
-                XRMovement.enabled = true;
-
-                isSitting = false;
+                // shooting the raycast
+                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
+                {
+                    // moving player & setting isSitting to true
+                    MovePlayer(sittingTransform);
+                    isSitting = true;
+                }
             }
             else
             {
-                return;
+                // enable movement
+                XRMovement.enabled = true;
+
+                // shooting the raycast
+                if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
+                {
+                    // moving player & setting isSitting to false
+                    MovePlayer(exitTransform);
+                    isSitting = false;
+                }
             }
-
-            //if(isSitting == false)
-            //{
-            //    // shooting the raycast
-            //    if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
-            //    {
-            //        // disbaling movement & setting isSitting to true
-            //        MovePlayer(sittingTransform);
-            //        XRMovement.enabled = false;
-
-            //        isSitting = true;
-            //    }
-            //}
-            //else
-            //{
-            //    // shooting the raycast
-            //    if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
-            //    {
-            //        // enabling movement & setting isSitting to false
-            //        MovePlayer(exitTransform);
-            //        XRMovement.enabled = true;
-
-            //        isSitting = false;
-            //    }
-            //}
         }
     }
 

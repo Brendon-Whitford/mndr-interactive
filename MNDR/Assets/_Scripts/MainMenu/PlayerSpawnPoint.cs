@@ -17,8 +17,8 @@ public class PlayerSpawnPoint : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
 
         if (player != null && spawnPoint != null){
-                player.transform.position = spawnPoint.transform.position;
-            }
+            player.transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+        }
         else {
             Debug.Log("Either player or spawnPoint is not is Null");
         }
