@@ -14,10 +14,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ActivateTeleporation : MonoBehaviour
 {
     public GameObject leftTeleportation;
-    public GameObject rightTeleportation;
+    //public GameObject rightTeleportation;
 
     public InputActionProperty leftActivate;
-    public InputActionProperty rightActivate;
+    //public InputActionProperty rightActivate;
 
     public bool canTeleport = false;
 
@@ -25,13 +25,13 @@ public class ActivateTeleporation : MonoBehaviour
     {
         if (canTeleport)
         {
-            leftTeleportation.SetActive(leftActivate.action.ReadValue<float>() > 0.1f);
-            rightTeleportation.SetActive(rightActivate.action.ReadValue<float>() > 0.1f);
+            Vector2 leftThumbstickValue = leftActivate.action.ReadValue<Vector2>();
+            leftTeleportation.SetActive(leftThumbstickValue.magnitude > 0.1f);            //rightTeleportation.SetActive(rightActivate.action.ReadValue<float>() > 0.1f);
         }
         else
         {
             leftTeleportation.SetActive(false);
-            rightTeleportation.SetActive(false);
+            //rightTeleportation.SetActive(false);
         }
     }
 }

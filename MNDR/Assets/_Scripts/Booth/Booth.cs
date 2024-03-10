@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -13,13 +14,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Booth : MonoBehaviour
 {
-    [Header("Player")]
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
-    private GameObject rightController;
+    // player references
+    [Header("Currnet XR Rig")]
+    [Tooltip("Name for current XR Rig.")]
+    [SerializeField] private string XRRigName;
 
     [Header("Booth Transforms")]
-    [Tooltip("This transform will be located in the Booth object as a child.")]
     [SerializeField] private Transform sittingTransform;
     [SerializeField] private Transform exitTransform;
 
@@ -28,63 +28,67 @@ public class Booth : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
 
+    private GameObject player;
+    private GameObject rightController;
+    private ActionBasedContinuousMoveProvider XRMovement;
+
     bool isSitting;
 
     private void Awake()
     {
+        // grabbing references for player
         rightController = GameObject.Find("RightHand Controller");
+        player = GameObject.Find(XRRigName);
+        XRMovement = FindFirstObjectByType<ActionBasedContinuousMoveProvider>();
     }
 
     private void Start()
     {
-        // player starts sitting at the booth
-        MovePlayer(sittingTransform);
-        XRMovement.enabled = false;
-
-        isSitting = true; 
+        isSitting = false; 
     }
 
     private void Update()
     {
         if(Input.GetButtonDown("RightController_A"))
         {
-            // creating the point to shoot the ray cast
+            // creating the point to shoot the ray cast using the rightController
             Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
 
-            Debug.Log("Pressed");
-
-            if(isSitting == true)
+            if (isSitting == false)
             {
-                // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
-                {
-                    // enabling movement & setting isSitting to false
-                    MovePlayer(exitTransform);
+                // disbale movement
+                XRMovement.enabled = false;
 
-                    XRMovement.enabled = true;
-                    isSitting = false;
+                // shooting the raycast
+                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
+                {
+                    // moving player & setting isSitting to true
+                    MovePlayer(sittingTransform);
+                    isSitting = true;
                 }
             }
             else
             {
+                // enable movement
+                XRMovement.enabled = true;
+
                 // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
+                if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
                 {
-                    // calling MovePlayer and disabling the movement script
-                    MovePlayer(sittingTransform);
-                    XRMovement.enabled = false;
-
-                    isSitting = true;
-
-                    // Debug.Log("Hit Booth");
+                    // moving player & setting isSitting to false
+                    MovePlayer(exitTransform);
+                    isSitting = false;
                 }
             }
         }
     }
 
+    /// <summary>
+    /// Sets the player position and rotation to the parameter.
+    /// </summary>
+    /// <param name="transform">Transform to set position and rotation.</param>
     private void MovePlayer(Transform transform)
     {
-        // setting the player position and rotation to the parameter
-        playerTransform.SetPositionAndRotation(transform.position, transform.rotation);
+        player.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 }
