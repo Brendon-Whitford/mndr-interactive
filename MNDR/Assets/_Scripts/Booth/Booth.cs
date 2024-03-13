@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.XR.Interaction.Toolkit;
 
 /*
@@ -56,12 +54,12 @@ public class Booth : MonoBehaviour
 
             if (isSitting == false)
             {
-                // disbale movement
-                XRMovement.enabled = false;
-
                 // shooting the raycast
                 if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
                 {
+                    // disbale movement
+                    XRMovement.enabled = false;
+
                     // moving player & setting isSitting to true
                     MovePlayer(sittingTransform);
                     isSitting = true;
@@ -69,12 +67,12 @@ public class Booth : MonoBehaviour
             }
             else
             {
-                // enable movement
-                XRMovement.enabled = true;
-
                 // shooting the raycast
                 if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
                 {
+                    // enable movement
+                    XRMovement.enabled = true;
+
                     // moving player & setting isSitting to false
                     MovePlayer(exitTransform);
                     isSitting = false;
