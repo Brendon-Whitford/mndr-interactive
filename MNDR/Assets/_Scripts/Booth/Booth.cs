@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -13,92 +14,81 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Booth : MonoBehaviour
 {
-    [Header("Player")]
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private Transform rightControllerTransform;
-    [SerializeField] private ActionBasedContinuousMoveProvider XRMovement;
+    // player references
+    [Header("Currnet XR Rig")]
+    [Tooltip("Name for current XR Rig.")]
+    [SerializeField] private string XRRigName;
 
     [Header("Booth Transforms")]
-    [Tooltip("This transform will be located in the Booth object as a child.")]
-    [SerializeField] private Transform boothSittingTransform;
+    [SerializeField] private Transform sittingTransform;
     [SerializeField] private Transform exitTransform;
-    //[SerializeField] private Transform leftTransform;
 
     [Header("Interaction References")]
     [SerializeField] private LayerMask boothLayerMask;
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
 
+    private GameObject player;
+    private GameObject rightController;
+    private ActionBasedContinuousMoveProvider XRMovement;
+
     bool isSitting;
+
+    private void Awake()
+    {
+        // grabbing references for player
+        rightController = GameObject.Find("RightHand Controller");
+        player = GameObject.Find(XRRigName);
+        XRMovement = FindFirstObjectByType<ActionBasedContinuousMoveProvider>();
+    }
 
     private void Start()
     {
-        // player starts sitting at the booth
-        MovePlayer(boothSittingTransform);
-        XRMovement.enabled = false;
-
-        isSitting = true; 
+        isSitting = false; 
     }
 
     private void Update()
     {
         if(Input.GetButtonDown("RightController_A"))
         {
-            // creating the point to shoot the ray cast
-            Ray rightControllerRay = new(rightControllerTransform.position, rightControllerTransform.forward);
+            // creating the point to shoot the ray cast using the rightController
+            Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
 
-            Debug.Log("Pressed");
-
-            if(isSitting == true)
+            if (isSitting == false)
             {
+                // disbale movement
+                XRMovement.enabled = false;
+
                 // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, out RaycastHit hit, interactDistance, groundLayerMask))
+                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
                 {
-                    // distance between the hit position and a transform (right or left transform)
-
-                    //float rightDistance = Vector3.Distance(hit.point, exitTransform.position);
-                    //float leftDistance = Vector3.Distance(hit.point, leftTransform.position);
-                    // enabling movement & setting isSitting to false
-
-                    MovePlayer(exitTransform);
-
-                    XRMovement.enabled = true;
-                    isSitting = false;
-
-                    //if (rightDistance < leftDistance)
-                    //{
-                    //    MovePlayer(exitTransform);
-
-                    //    Debug.Log("Leaving booth: " + exitTransform);
-                    //}
-                    //else
-                    //{
-                    //    MovePlayer(leftTransform);
-
-                    //    Debug.Log("Leaving booth: " + leftTransform);
-                    //}
+                    // moving player & setting isSitting to true
+                    MovePlayer(sittingTransform);
+                    isSitting = true;
                 }
             }
             else
             {
+                // enable movement
+                XRMovement.enabled = true;
+
                 // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
+                if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
                 {
-                    // calling MovePlayer and disabling the movement script
-                    MovePlayer(boothSittingTransform);
-                    XRMovement.enabled = false;
-
-                    isSitting = true;
-
-                    Debug.Log("Hit Booth");
+                    // moving player & setting isSitting to false
+                    MovePlayer(exitTransform);
+                    isSitting = false;
                 }
             }
         }
     }
 
+    /// <summary>
+    /// Sets the player position and rotation to the parameter.
+    /// </summary>
+    /// <param name="transform">Transform to set position and rotation.</param>
     private void MovePlayer(Transform transform)
     {
-        // setting the player position and rotation to the parameter
-        playerTransform.SetPositionAndRotation(transform.position, transform.rotation);
+        player.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 }
