@@ -17,12 +17,16 @@ public class ServerAI : MonoBehaviour
     [SerializeField] private GameObject hubFood;
     private GameObject currentFood;
 
+    private Booth booth;
+
     void Awake()
     {
         hubFood.SetActive(false);
         cathedralFood.SetActive(false);
         brainFood.SetActive(false);
         hasOrdered = false;
+
+        booth = FindObjectOfType<Booth>();
 
         //grabs all the patrolling points
         foreach(Transform child in pointsParent.transform)
@@ -65,12 +69,23 @@ public class ServerAI : MonoBehaviour
         //Sets the currentFood to what dish was ordered from the menu
         currentFood = food;
 
-        navMeshAgent.destination = deliveryPoint.position;
+        // checking to see if player is sitting
+        if(booth.isSitting == false)
+        {
+            // play voice line
+            Debug.Log("Please take a seat before ordering.");
+        }
+        else
+        {
+            navMeshAgent.destination = deliveryPoint.position;
 
-        //If the AI makes it to the booth show the food item
-        if (navMeshAgent.remainingDistance < 0.1f) {
-            if (currentFood != null) {
-                currentFood.SetActive(true);
+            //If the AI makes it to the booth show the food item
+            if (navMeshAgent.remainingDistance < 0.1f)
+            {
+                if (currentFood != null)
+                {
+                    currentFood.SetActive(true);
+                }
             }
         }
     }
