@@ -69,31 +69,29 @@ public class ServerAI : MonoBehaviour
         //Sets the currentFood to what dish was ordered from the menu
         currentFood = food;
 
-        // checking to see if player is sitting
-        if(booth.isSitting == false)
-        {
-            // play voice line
-            Debug.Log("Please take a seat before ordering.");
-        }
-        else
-        {
-            navMeshAgent.destination = deliveryPoint.position;
+        navMeshAgent.destination = deliveryPoint.position;
 
-            //If the AI makes it to the booth show the food item
-            if (navMeshAgent.remainingDistance < 0.1f)
+        //If the AI makes it to the booth show the food item
+        if (navMeshAgent.remainingDistance < 0.1f)
+        {
+            if (currentFood != null)
             {
-                if (currentFood != null)
-                {
-                    currentFood.SetActive(true);
-                }
+                currentFood.SetActive(true);
             }
         }
     }
 
     //Make sure each button on the menus On Click () function points to one of these functions
     public void HasOrderedBrainMaze(){
-        hasOrdered = true;
-        MoveToBooth(brainFood);
+        if(booth.isSitting == true)
+        {
+            hasOrdered = true;
+            MoveToBooth(brainFood);
+        }
+        else
+        {
+            Debug.Log("Please take a seat before ordering.");
+        }
     }
 
     public void HasOrderedCathedral(){
