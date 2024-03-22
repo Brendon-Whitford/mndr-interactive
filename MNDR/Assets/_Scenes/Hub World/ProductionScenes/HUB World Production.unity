@@ -19251,6 +19251,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2957040477890553450, guid: 7deb2d93ddaeeb84cbc1c3b88110fad1, type: 3}
   m_PrefabInstance: {fileID: 848852988}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &855643012
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2078336585}
+    m_Modifications:
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632841234747186024, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_text
+      value: Hold the Trigger to Pick Up!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818677339520377699, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_Name
+      value: HoverUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818677339520377699, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+--- !u!4 &855643013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4438027779946547109, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+  m_PrefabInstance: {fileID: 855643012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &856478481
 GameObject:
   m_ObjectHideFlags: 0
@@ -26997,6 +27083,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191147481}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1193423074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7818677339520377699, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
+  m_PrefabInstance: {fileID: 855643012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1196826396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44135,6 +44226,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   interactDistance: 25
+  isSitting: 0
 --- !u!1001 &2014842555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45406,6 +45498,7 @@ Transform:
   m_Children:
   - {fileID: 725202740}
   - {fileID: 960373485}
+  - {fileID: 855643013}
   m_Father: {fileID: 45423044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2078336586
@@ -45480,10 +45573,34 @@ MonoBehaviour:
       m_Calls: []
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1193423074}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1193423074}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls: []
