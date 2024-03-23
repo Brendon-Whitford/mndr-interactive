@@ -17,12 +17,16 @@ public class ServerAI : MonoBehaviour
     [SerializeField] private GameObject hubFood;
     private GameObject currentFood;
 
+    private Booth booth;
+
     void Awake()
     {
         hubFood.SetActive(false);
         cathedralFood.SetActive(false);
         brainFood.SetActive(false);
         hasOrdered = false;
+
+        booth = FindObjectOfType<Booth>();
 
         //grabs all the patrolling points
         foreach(Transform child in pointsParent.transform)
@@ -68,8 +72,10 @@ public class ServerAI : MonoBehaviour
         navMeshAgent.destination = deliveryPoint.position;
 
         //If the AI makes it to the booth show the food item
-        if (navMeshAgent.remainingDistance < 0.1f) {
-            if (currentFood != null) {
+        if (navMeshAgent.remainingDistance < 0.1f)
+        {
+            if (currentFood != null)
+            {
                 currentFood.SetActive(true);
             }
         }
@@ -77,8 +83,15 @@ public class ServerAI : MonoBehaviour
 
     //Make sure each button on the menus On Click () function points to one of these functions
     public void HasOrderedBrainMaze(){
-        hasOrdered = true;
-        MoveToBooth(brainFood);
+        if(booth.isSitting == true)
+        {
+            hasOrdered = true;
+            MoveToBooth(brainFood);
+        }
+        else
+        {
+            Debug.Log("Please take a seat before ordering.");
+        }
     }
 
     public void HasOrderedCathedral(){
