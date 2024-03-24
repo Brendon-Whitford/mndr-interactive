@@ -2526,6 +2526,7 @@ GameObject:
   - component: {fileID: 561482237}
   - component: {fileID: 561482241}
   - component: {fileID: 561482244}
+  - component: {fileID: 561482245}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2652,6 +2653,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageOne: {fileID: 1508418985}
   pageTwo: {fileID: 513209705}
+--- !u!114 &561482245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561482235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a660a829b25f945889f1ef6416a61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HubMix: {fileID: 24100000, guid: 21b1859943c670e419b3aced3c143858, type: 2}
+  ChapelMix: {fileID: 24100000, guid: a1516f3029c6ee7409faae6854f11a59, type: 2}
+  SineMix: {fileID: 24100000, guid: 1ade0275fccae7f439dad384c6dde02d, type: 2}
 --- !u!1 &610868409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5939,8 +5955,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+      - m_Target: {fileID: 561482245}
+        m_TargetAssemblyTypeName: AudioSliderController, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
