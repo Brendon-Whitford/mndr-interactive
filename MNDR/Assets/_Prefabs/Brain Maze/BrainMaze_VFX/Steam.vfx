@@ -24,12 +24,32 @@ MonoBehaviour:
     contents: Velocity intended to be >0 and < .3
     theme: Classic
     textSize: Small
+  - title: Title
+    position:
+      serializedVersion: 2
+      x: 62
+      y: 466
+      width: 295
+      height: 100
+    contents: Looks a little messy but it keeps x and z velocities in parody
+    theme: Classic
+    textSize: Small
+  - title: Title
+    position:
+      serializedVersion: 2
+      x: 318
+      y: 698
+      width: 162
+      height: 100
+    contents: Sets maximum in inspector then divides for min
+    theme: Classic
+    textSize: Small
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 351
+    x: 62
     y: -190
-    width: 1014
+    width: 1303
     height: 1642
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -2409,7 +2429,7 @@ MonoBehaviour:
       inputSlot: {fileID: 8926484042661614646}
     - outputSlot: {fileID: 8926484042661614644}
       inputSlot: {fileID: 8926484042661614582}
-    position: {x: 488, y: 646.39996}
+    position: {x: 493.6, y: 701.6}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614644
@@ -2463,7 +2483,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 731, y: 568}
+  m_UIPosition: {x: 739, y: 561}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
