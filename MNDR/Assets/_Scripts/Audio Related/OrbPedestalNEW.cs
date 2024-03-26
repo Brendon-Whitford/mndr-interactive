@@ -92,6 +92,9 @@ public class OrbPedestalNEW : MonoBehaviour
 
     private void HandleSelectExited(XRBaseInteractable interactable)
     {
+        reverbFilter.enabled = false;
+        chorusFilter.enabled = false;
+        distortionFilter.enabled = false;
 
         if (interactable.CompareTag(orbName))
         {
