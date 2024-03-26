@@ -28,7 +28,8 @@ public class Booth : MonoBehaviour
     [SerializeField] private float interactDistance;
 
     [Space]
-    [SerializeField] private GameObject hoverUi;
+    [SerializeField] private GameObject sittingUI;
+    [SerializeField] private GameObject exitUI;
 
     [Tooltip("Boolean to check if the player is sitting.")]
     public bool isSitting;
@@ -36,8 +37,6 @@ public class Booth : MonoBehaviour
     private GameObject player;
     private GameObject rightController;
     private ActionBasedContinuousMoveProvider XRMovement;
-
-    bool isHovered;
 
     private void Awake()
     {
@@ -50,10 +49,6 @@ public class Booth : MonoBehaviour
     private void Start()
     {
         isSitting = false;
-        isHovered = false;
-
-        // creating the point to shoot the ray cast using the rightController
-        
     }
 
     private void Update()
@@ -62,33 +57,32 @@ public class Booth : MonoBehaviour
         {
             Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
 
-            if (isSitting == false)
+            // shooting the raycast
+            if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && !isSitting)
             {
-                // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask))
-                {
-                    // disbale movement
-                    XRMovement.enabled = false;
+                // disbale movement
+                XRMovement.enabled = false;
 
-                    // moving player & setting isSitting to true
-                    MovePlayer(sittingTransform);
-                    isSitting = true;
-                }
+                // moving player & setting isSitting to true
+                MovePlayer(sittingTransform);
+                isSitting = true;
+            }
+            else if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask) && isSitting)
+            {
+                // enable movement
+                XRMovement.enabled = true;
+
+                // moving player & setting isSitting to false
+                MovePlayer(exitTransform);
+                isSitting = false;
             }
             else
             {
-                // shooting the raycast
-                if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask))
-                {
-                    // enable movement
-                    XRMovement.enabled = true;
-
-                    // moving player & setting isSitting to false
-                    MovePlayer(exitTransform);
-                    isSitting = false;
-                }
+                return;
             }
         }
+
+        exitUI.SetActive(isSitting ? true : false);
     }
 
     private void FixedUpdate()
@@ -97,17 +91,16 @@ public class Booth : MonoBehaviour
 
         if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && !isSitting)
         {
-            hoverUi.SetActive(true);
+            sittingUI.SetActive(true);
         }
         else if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && isSitting)
         {
-            hoverUi.SetActive(false);
+            sittingUI.SetActive(false);
         }
         else
         {
-            hoverUi.SetActive(false);
+            sittingUI.SetActive(false);
         }
-
     }
 
     /// <summary>
