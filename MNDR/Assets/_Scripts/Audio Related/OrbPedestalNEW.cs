@@ -80,9 +80,6 @@ public class OrbPedestalNEW : MonoBehaviour
         }
         else
         {
-            reverbFilter.enabled = false;
-            chorusFilter.enabled = false;
-            distortionFilter.enabled = false;
             Debug.Log("Incorrect");
         }
     }
@@ -92,12 +89,20 @@ public class OrbPedestalNEW : MonoBehaviour
 
     private void HandleSelectExited(XRBaseInteractable interactable)
     {
-        reverbFilter.enabled = false;
-        chorusFilter.enabled = false;
-        distortionFilter.enabled = false;
-
         if (interactable.CompareTag(orbName))
         {
+            if (orbName == "RedOrb")
+            {
+                reverbFilter.enabled = false;
+            }
+            else if (orbName == "BlueOrb")
+            {
+                chorusFilter.enabled = false;
+            }
+            else if (orbName == "BlackOrb")
+            {
+                distortionFilter.enabled = false;
+            }
             activated = false;
             socketManager.correctSockets--;
         }

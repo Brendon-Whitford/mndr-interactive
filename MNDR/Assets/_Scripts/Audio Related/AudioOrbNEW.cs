@@ -55,8 +55,17 @@ public class AudioOrbNEW : MonoBehaviour
     // Stop Effect on Put Down
     public void PutDown()
     {
-        reverbFilter.enabled = false;
-        chorusFilter.enabled = false;
-        distortionFilter.enabled = false;
+        if (this.tag == "RedOrb")
+        {
+            reverbFilter.enabled = false;
+        }
+        else if (this.tag == "BlueOrb")
+        {
+            chorusFilter.enabled = false;
+        }
+        else if (this.tag == "BlackOrb")
+        {
+            distortionFilter.enabled = false;
+        }
     }
 }
