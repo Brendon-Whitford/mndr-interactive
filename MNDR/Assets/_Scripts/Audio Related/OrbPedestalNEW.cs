@@ -1,19 +1,16 @@
 /**
-* OrbPedestal
+* OrbPedestalNEW
 * Author: Aria Strasser
-* Description: This script goes on a socket for an AudioOrb, which must have an AudioSource.
-*              The AudioSource should have a group (the stem you want to play) and a
-*              clip of the audio you want played. Play on Awake and Loop must be checked.
-*              Takes a String for the correct tag, an empty SocketManager object.
+* Description: This script goes on a socket for an AudioOrb. Requires a String for the correct tag,
+*              an empty SocketManager object, and an empty MusicSource object with the audio effects
+*              and the audio source.
 *              
 *              When the user places an orb on the pedestal, it will check the tag (Make sure
-*              to tag the orbs). If it is the correct orb, it will start playing the audio,
-*              turn off the XR Interactable, change activated to true, and then ask the 
-*              SocketManager if all orbs are correctly placed.
-*              
-*              If all are correctly placed it will turn off the AudioSource.
-*              
-*              Works in conjunction with AudioOrb and SocketManager scripts
+*              to tag the orbs). If it is the correct orb, it will turn on the relative effect on the
+*              audio, change activated to true, and then ask the SocketManager if all orbs are correctly 
+*              placed.
+*                            
+*              Works in conjunction with AudioOrbNEW and SocketManager scripts
 */
 
 using System.Collections;

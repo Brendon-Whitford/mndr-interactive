@@ -1,16 +1,15 @@
 /**
 * AudioOrb
 * Author: Aria Strasser
-* Description: This script goes on an audio orb, which must have an AudioSource.
-*              The AudioSource should have a group (the stem you want to play) and a
-*              clip of the audio you want played. Play on Awake and Loop must be checked.
-*              The functions on this script also need to be attributed to the SelectEntered
-*              and SelectExited Interactable Events respectively. Orbs must also be tagged.
+* Description: This script goes on an audio orb, and requires an empty MusicSource object 
+*              with the audio effects and an audio source. The functions on this script also 
+*              need to be attributed to the SelectEntered and SelectExited Interactable 
+*              Events respectively. Orbs must also be tagged.
 *              
-*              When the user picks up the orb, it will play an audio stem, and when the 
-*              user lets go, it will stop playing.
+*              When the user picks up the orb, it will turn on an audio effect, and when the 
+*              user lets go, it will turn that effect off.
 *              
-*              Works in conjunction with OrbPedestal and SocketManager scripts
+*              Works in conjunction with OrbPedestalNEW and SocketManager scripts
 */
 
 using System.Collections;
