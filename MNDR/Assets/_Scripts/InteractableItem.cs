@@ -1,27 +1,21 @@
+/**
+* InteractableItem
+* Author: Hayden Dalton
+* Description:  Very simple script, just put it on each of the cards and assign it a number.
+* this script it meant to work together with the "NPC" script to hand the NPC a card with a given
+* number and get a response based on that number.
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
 {
-    [SerializeField] private bool interact1 = false;
-    [SerializeField] private bool interact2 = false;
-    [SerializeField] private bool interact3 = false;
+    [SerializeField] private int cardNumber = 0;
 
     public void Interact(NPC npc) {
 
-        if(interact1){
-            npc.Interaction1();
-        }
-        else if(interact2){
-            npc.Interaction2();
-        }
-        else if(interact3) {
-            npc.Interaction3();
-        }
-        else {
-            Debug.Log("Please Select an Interaction");
-        }
+        npc.CardNumber(cardNumber);
         Destroy(gameObject);
     }
 
