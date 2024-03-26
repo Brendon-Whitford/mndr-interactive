@@ -26,11 +26,13 @@ public class Booth : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
 
+    [Tooltip("Boolean to check if the player is sitting.")]
+    public bool isSitting;
+
     private GameObject player;
     private GameObject rightController;
     private ActionBasedContinuousMoveProvider XRMovement;
 
-    bool isSitting;
 
     private void Awake()
     {
