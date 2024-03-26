@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Created By Carson McMahan || 03/21/2024
+ * Created By Carson McMahan | 03/21/2024 |
  * This script is being used for UI that is shown while hovering over an object.
  */
 
@@ -13,7 +13,7 @@ public class UiLookAt : MonoBehaviour
 
     private void Awake()
     {
-        playerTransform = GameObject.Find("XR Origin (1)").transform;
+        playerTransform = GameObject.Find("Camera Offset").transform;
     }
 
     void Update()

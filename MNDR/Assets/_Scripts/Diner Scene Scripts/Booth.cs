@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -26,6 +27,9 @@ public class Booth : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
 
+    [Space]
+    [SerializeField] private GameObject hoverUi;
+
     [Tooltip("Boolean to check if the player is sitting.")]
     public bool isSitting;
 
@@ -33,6 +37,7 @@ public class Booth : MonoBehaviour
     private GameObject rightController;
     private ActionBasedContinuousMoveProvider XRMovement;
 
+    bool isHovered;
 
     private void Awake()
     {
@@ -44,14 +49,17 @@ public class Booth : MonoBehaviour
 
     private void Start()
     {
-        isSitting = false; 
+        isSitting = false;
+        isHovered = false;
+
+        // creating the point to shoot the ray cast using the rightController
+        
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("RightController_A"))
+        if (Input.GetButtonDown("RightController_A"))
         {
-            // creating the point to shoot the ray cast using the rightController
             Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
 
             if (isSitting == false)
@@ -81,6 +89,25 @@ public class Booth : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Ray rightControllerRay = new(rightController.transform.position, rightController.transform.forward);
+
+        if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && !isSitting)
+        {
+            hoverUi.SetActive(true);
+        }
+        else if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && isSitting)
+        {
+            hoverUi.SetActive(false);
+        }
+        else
+        {
+            hoverUi.SetActive(false);
+        }
+
     }
 
     /// <summary>
