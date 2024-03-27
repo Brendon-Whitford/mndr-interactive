@@ -75,7 +75,7 @@
 
             float4 frag (v2f i) : SV_Target
             {
-				int upper = (_KernelSize - 1) / 2;
+				uint upper = (_KernelSize - 1) / 2;
 				int lower = -upper;
 
 				int samples = (upper + 1) * (upper + 1);
