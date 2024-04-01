@@ -93,7 +93,4 @@ public class Settings : MonoBehaviour
             continuousMove.enabled = false;
         }
     }
-
-    
-    
 }
