@@ -12,12 +12,30 @@ using UnityEngine;
 public class InteractableItem : MonoBehaviour
 {
     [SerializeField] private int cardNumber = 0;
+    [SerializeField] private Transform anchorPoint;
+
+    private void Awake()
+    {
+        ResetPosition();
+    }
 
     public void Interact(NPC npc) {
 
         npc.CardNumber(cardNumber);
-        Destroy(gameObject);
+
+        ResetPosition();
     }
 
-    
+    private void ResetPosition()
+    {
+        if(anchorPoint != null)
+        {
+            transform.position = anchorPoint.position;
+            //transform.rotation = anchorPoint.rotation;
+        }
+        else
+        {
+            Debug.Log("No Anchor Point for card" + cardNumber);
+        }
+    }
 }
