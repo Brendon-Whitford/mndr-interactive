@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarFieldMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: b92153e181b264e4593e27d0d21840b1, type: 3}
+  m_Name: GlowingOutline
+  m_Shader: {fileID: -6465566751694194690, guid: 38846436b96860a4fb332064ab472d64, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3050
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -37,16 +37,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlinkingSpeed: 0.005
     - _QueueControl: 0
-    - _QueueOffset: 0
-    - _StarDensity: 500
-    - _StarsPower: 25
+    - _QueueOffset: 50
+    - _Scale: 1.1
     m_Colors:
-    - _StarColor: {r: 76.15007, g: 15.445534, b: 52.807407, a: 0}
-    - _StarColor2: {r: 1.9274365, g: 0, b: 2.3656266, a: 0}
+    - _Color: {r: 32, g: 28.773903, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4319003283091765187
+--- !u!114 &4242290563736606536
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
