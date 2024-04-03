@@ -15,11 +15,15 @@ using UnityEngine.Audio;
 
 public class AudioSliderController : MonoBehaviour
 {
-    [SerializeField] private AudioMixer myAudioMixer;
-    
+    [SerializeField] private AudioMixer HubMix;
+    [SerializeField] private AudioMixer ChapelMix;
+    [SerializeField] private AudioMixer SineMix;
+
     public void SetVolume (float sliderValue) {
         //Changes slider value to logarithic value which is what volumeMixers use
         //Min Value of Slider set to 0.0001 because of this
-        myAudioMixer.SetFloat("Test", Mathf.Log10(sliderValue) * 20);
+        HubMix.SetFloat("HubMix", Mathf.Log10(sliderValue) * 20);
+        ChapelMix.SetFloat("ChapelMix", Mathf.Log10(sliderValue) * 20);
+        SineMix.SetFloat("SineMix", Mathf.Log10(sliderValue) * 20);
     }
 }
