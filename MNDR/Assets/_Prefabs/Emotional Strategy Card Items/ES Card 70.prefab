@@ -225,7 +225,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -249,7 +249,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.13, y: 0.51, z: 0.85}
+  m_Size: {x: 0.2, y: 0.6, z: 0.95}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4817743741875752032
 MonoBehaviour:
@@ -416,3 +416,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardNumber: 8
+  anchorPoint: {fileID: 0}

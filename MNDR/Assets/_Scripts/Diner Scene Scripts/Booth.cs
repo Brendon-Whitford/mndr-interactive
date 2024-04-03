@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit;
 
 /*
  * Created By Carson McMahan || 01/26/2024
@@ -119,6 +120,18 @@ public class Booth : MonoBehaviour
 
         MovePlayer(exitTransform);
         return isSitting = false;
+    }
+
+    /// <summary>
+    /// Returns Movement to player. Reference this on the scene transition when grabbing food item.
+    /// </summary>
+    public void ReturnMovement()
+    {
+        if (isContinuouse)
+            conMovement.enabled = true;
+        else if (isTeleport)
+            telportMovement.enabled = true;
+
     }
 
     /// <summary>

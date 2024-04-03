@@ -8,8 +8,16 @@ using UnityEngine.SceneManagement;
 public class SwapScenes : MonoBehaviour
 {
     public string sceneToLoad;
+    public float delayTime = 1f;
 
     public void ChangeScene() {
-            SceneManager.LoadScene(sceneToLoad);
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
