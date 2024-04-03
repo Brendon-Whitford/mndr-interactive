@@ -25,6 +25,8 @@ public class HowToPlayUI : MonoBehaviour
 
         playerPauseMenuSpawnPoint = GameObject.FindGameObjectWithTag("Pause");
         playerPauseMenuSpawnPoint.GetComponentInParent<LocomotionSystem>().enabled = false;
+        playerPauseMenuSpawnPoint.GetComponentInParent <ActionBasedContinuousMoveProvider>().enabled = false;
+        playerPauseMenuSpawnPoint.GetComponentInParent<ActionBasedContinuousTurnProvider>().enabled = false;
         transform.position = playerPauseMenuSpawnPoint.transform.position;
         transform.rotation = playerPauseMenuSpawnPoint.transform.rotation;
     }
@@ -32,6 +34,8 @@ public class HowToPlayUI : MonoBehaviour
     public void ContinueButton()
     {
         playerPauseMenuSpawnPoint.GetComponentInParent<LocomotionSystem>().enabled = true;
+        playerPauseMenuSpawnPoint.GetComponentInParent<ActionBasedContinuousMoveProvider>().enabled = true;
+        playerPauseMenuSpawnPoint.GetComponentInParent<ActionBasedContinuousTurnProvider>().enabled = true;
         howToPlayUI.SetActive(false);
     }
 }

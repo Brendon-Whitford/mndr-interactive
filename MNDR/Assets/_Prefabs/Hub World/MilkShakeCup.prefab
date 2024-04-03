@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1024427913990369409
 Transform:
@@ -86,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 683526e78939b854eacdf8a28759bfc0, type: 3}
       propertyPath: m_Name
       value: MilkShakeCup
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 683526e78939b854eacdf8a28759bfc0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
