@@ -19,6 +19,17 @@ public class ServerAI : MonoBehaviour
 
     private Booth booth;
 
+
+    //Voice Lines and Audio
+    [SerializeField] private AudioClip[] randomLines;
+    [SerializeField] private AudioClip startClip;
+    [SerializeField] private AudioClip notSittingClip;
+    [SerializeField] private AudioClip deliveredClip;
+
+    private AudioSource audioSource;
+    private WaitForSeconds refreshIntervalWait = new WaitForSeconds(25);
+
+
     void Awake()
     {
         hubFood.SetActive(false);
@@ -37,7 +48,17 @@ public class ServerAI : MonoBehaviour
 
         navMeshAgent.autoBraking = true; // slows down when approaching a point
 
+        audioSource = GetComponent<AudioSource>(); //Grabs the AudioSource
+
+        audioSource.clip = startClip; //set start audio
+        audioSource.Play(); //play that audio
+
         GotoNextPoint();
+    }
+
+    void Start()
+    {
+        StartCoroutine(PlayRandomVoiceLine());
     }
 
     void Update()
@@ -65,6 +86,19 @@ public class ServerAI : MonoBehaviour
         navMeshAgent.destination = points[destPoint].position;
     }
 
+    //Waits 25 seconds, plays a random voice line, repeats
+    IEnumerator PlayRandomVoiceLine()
+    {
+        Debug.Log("Coroutine Started");
+        while (true)
+        {
+            yield return refreshIntervalWait;
+            int randomIndex = Random.Range(0, randomLines.Length);
+            audioSource.clip = randomLines[randomIndex];
+            audioSource.Play();
+        }
+    }
+
     void MoveToBooth(GameObject food){
         //Sets the currentFood to what dish was ordered from the menu
         currentFood = food;
@@ -87,9 +121,13 @@ public class ServerAI : MonoBehaviour
         {
             hasOrdered = true;
             MoveToBooth(brainFood);
+            audioSource.clip = deliveredClip; //set clip
+            audioSource.Play(); //play delivered clip
         }
         else
         {
+            audioSource.clip = notSittingClip; //set clip
+            audioSource.Play(); //play the not sitting down clip
             Debug.Log("Please take a seat before ordering.");
         }
     }
@@ -97,10 +135,14 @@ public class ServerAI : MonoBehaviour
     public void HasOrderedCathedral(){
         hasOrdered = true;
         MoveToBooth(cathedralFood);
+        audioSource.clip = deliveredClip; //set clip
+        audioSource.Play(); //play delivered clip
     }
 
     public void HasOrderedHub(){
         hasOrdered = true;
         MoveToBooth(hubFood);
+        audioSource.clip = deliveredClip; //set clip
+        audioSource.Play(); //play delivered clip
     }
 }
