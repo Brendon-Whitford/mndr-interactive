@@ -5,18 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Staircase : MonoBehaviour
 {
-    [SerializeField] private string clubSceneName;
+    [SerializeField] private int sceneID;
     [SerializeField] private LayerMask staircaseLayer; 
     [SerializeField] private float interactDistance;
 
-    private Transform player;
     private Transform rightController;
 
     // Start is called before the first frame update
     void Awake()
     {
         rightController = GameObject.Find("RightHand Controller").transform;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -29,7 +27,7 @@ public class Staircase : MonoBehaviour
 
             if (Physics.Raycast(rightControllerRay, interactDistance, staircaseLayer))
             {
-                SceneManager.LoadScene(clubSceneName);
+                SceneManager.LoadScene(sceneID);
             }
         }
     }
