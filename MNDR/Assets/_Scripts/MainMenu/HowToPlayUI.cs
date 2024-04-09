@@ -5,37 +5,48 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HowToPlayUI : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPauseMenuSpawnPoint;
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject howToPlayUI;
     private static HowToPlayUI instance;
 
+    private ActionBasedContinuousMoveProvider conMovement;
+    private TeleportationProvider telportMovement;
+    bool isContinuouse;
+    bool isTeleport;
+
     void Awake()
     {
-        howToPlayUI.SetActive(true);
         //so it doesn't pop up again after coming back to hub
-        DontDestroyOnLoad(this); 
-        if(instance == null)
+        DontDestroyOnLoad(this);
+        if (instance == null)
         {
+            player = GameObject.FindGameObjectWithTag("Player");
             instance = this;
+            conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
+            telportMovement = player.GetComponent<TeleportationProvider>();
+            CheckMovementType();
+            conMovement.enabled = false;
+            telportMovement.enabled = false;
         }
         else
         {
+            gameObject.SetActive(false);
             Destroy(this);
         }
+    }
 
-        playerPauseMenuSpawnPoint = GameObject.FindGameObjectWithTag("Pause");
-        playerPauseMenuSpawnPoint.GetComponentInParent<LocomotionSystem>().enabled = false;
-        playerPauseMenuSpawnPoint.GetComponentInParent <ActionBasedContinuousMoveProvider>().enabled = false;
-        playerPauseMenuSpawnPoint.GetComponentInParent<ActionBasedContinuousTurnProvider>().enabled = false;
-        transform.position = playerPauseMenuSpawnPoint.transform.position;
-        transform.rotation = playerPauseMenuSpawnPoint.transform.rotation;
+    private void CheckMovementType()
+    {
+        isContinuouse = conMovement.enabled;
+        isTeleport = telportMovement.enabled;
     }
 
     public void ContinueButton()
     {
-        playerPauseMenuSpawnPoint.GetComponentInParent<LocomotionSystem>().enabled = true;
-        playerPauseMenuSpawnPoint.GetComponentInParent<ActionBasedContinuousMoveProvider>().enabled = true;
-        playerPauseMenuSpawnPoint.GetComponentInParent<ActionBasedContinuousTurnProvider>().enabled = true;
+        if (isContinuouse)
+            conMovement.enabled = true;
+        else if (isTeleport)
+            telportMovement.enabled = true;
         howToPlayUI.SetActive(false);
     }
 }

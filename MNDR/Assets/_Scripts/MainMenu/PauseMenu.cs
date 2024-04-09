@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private bool menuActive;
     [SerializeField] private InputActionReference pauseMenuAction;
     [SerializeField] private GameObject mainPage;
+    [SerializeField] private GameObject settingsPage;
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject dinerButton;
     [SerializeField] private UnityEngine.SceneManagement.Scene hubScene;
@@ -23,7 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        hubScene = SceneManager.GetActiveScene();
+        hubScene = SceneManager.GetSceneByBuildIndex(1);
         MenuVisibility(menuActive = false);
         playerPauseMenuSpawnPoint = GameObject.FindGameObjectWithTag("Pause"); 
         
@@ -40,8 +41,10 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        pauseMenuAction.action.performed += cxt => SpawnPauseMenu();
-        
+        if(SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        {
+            pauseMenuAction.action.performed += cxt => SpawnPauseMenu();
+        }
     }
 
     public void SpawnPauseMenu()
@@ -60,12 +63,10 @@ public class PauseMenu : MonoBehaviour
 
         if (menuActive == false)
         {
-            playerPauseMenuSpawnPoint.GetComponentInParent<LocomotionSystem>().enabled = false;
             MenuVisibility(menuActive = true);
         }
         else if (menuActive == true)
         {
-            playerPauseMenuSpawnPoint.GetComponentInParent<LocomotionSystem>().enabled = true;
             MenuVisibility(menuActive = false);
         }
     }
@@ -74,5 +75,6 @@ public class PauseMenu : MonoBehaviour
     {
         mainPage.SetActive(visible);
         panel.SetActive(visible);
+        settingsPage.SetActive(false);
     }
 }
