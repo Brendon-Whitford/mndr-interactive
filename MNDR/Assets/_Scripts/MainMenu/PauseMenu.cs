@@ -13,18 +13,24 @@ using UnityEngine.XR.OpenXR.Input;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject playerPauseMenuSpawnPoint;
+    [SerializeField] private GameObject player;
     [SerializeField] private bool menuActive;
     [SerializeField] private InputActionReference pauseMenuAction;
     [SerializeField] private GameObject mainPage;
     [SerializeField] private GameObject settingsPage;
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject dinerButton;
-    [SerializeField] private UnityEngine.SceneManagement.Scene hubScene;
+    [SerializeField] private UnityEngine.SceneManagement.Scene menuScene;
     private static PauseMenu instance;
+
+    private ActionBasedContinuousMoveProvider conMovement;
+    private TeleportationProvider telportMovement;
+    bool isContinuouse;
+    bool isTeleport;
 
     private void Awake()
     {
-        hubScene = SceneManager.GetSceneByBuildIndex(1);
+        menuScene = SceneManager.GetSceneByBuildIndex(0);
         MenuVisibility(menuActive = false);
         playerPauseMenuSpawnPoint = GameObject.FindGameObjectWithTag("Pause"); 
         
@@ -37,6 +43,11 @@ public class PauseMenu : MonoBehaviour
         {
             Destroy(this);
         }
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
+        telportMovement = player.GetComponent<TeleportationProvider>();
+        CheckMovementType();
     }
 
     private void Update()
@@ -52,11 +63,11 @@ public class PauseMenu : MonoBehaviour
         transform.position = playerPauseMenuSpawnPoint.transform.position;
         transform.rotation = playerPauseMenuSpawnPoint.transform.rotation;
 
-        if(SceneManager.GetActiveScene() != hubScene)
+        if(SceneManager.GetActiveScene() != menuScene)
         {
             dinerButton.SetActive(true);
         }
-        else if(SceneManager.GetActiveScene() == hubScene)
+        else if(SceneManager.GetActiveScene() == menuScene)
         {
             dinerButton.SetActive(false);
         }
@@ -68,6 +79,10 @@ public class PauseMenu : MonoBehaviour
         else if (menuActive == true)
         {
             MenuVisibility(menuActive = false);
+            if (isContinuouse)
+                conMovement.enabled = true;
+            else if (isTeleport)
+                telportMovement.enabled = true;
         }
     }
 
@@ -76,5 +91,11 @@ public class PauseMenu : MonoBehaviour
         mainPage.SetActive(visible);
         panel.SetActive(visible);
         settingsPage.SetActive(false);
+    }
+
+    private void CheckMovementType()
+    {
+        isContinuouse = conMovement.enabled;
+        isTeleport = telportMovement.enabled;
     }
 }

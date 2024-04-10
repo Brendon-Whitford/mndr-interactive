@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class HowToPlayUI : MonoBehaviour
@@ -14,6 +15,9 @@ public class HowToPlayUI : MonoBehaviour
     bool isContinuouse;
     bool isTeleport;
 
+    private bool natureFirstTime;
+    private bool clubFirstTime;
+
     void Awake()
     {
         //so it doesn't pop up again after coming back to hub
@@ -24,15 +28,37 @@ public class HowToPlayUI : MonoBehaviour
             instance = this;
             conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
             telportMovement = player.GetComponent<TeleportationProvider>();
-            CheckMovementType();
-            conMovement.enabled = false;
-            telportMovement.enabled = false;
+            DisableMovement();
+            natureFirstTime = true;
+            clubFirstTime = true;
         }
         else
         {
             gameObject.SetActive(false);
             Destroy(this);
         }
+    }
+
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2) && natureFirstTime == true)
+        {
+            natureFirstTime = false;
+            DisableMovement();
+        }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3) && clubFirstTime == true)
+        {
+            clubFirstTime = false;
+            DisableMovement();
+        }
+    }
+
+    private void DisableMovement()
+    {
+        howToPlayUI.SetActive(true);
+        CheckMovementType();
+        conMovement.enabled = false;
+        telportMovement.enabled = false;
     }
 
     private void CheckMovementType()

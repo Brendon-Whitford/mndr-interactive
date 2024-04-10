@@ -28,6 +28,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void GoToMenuScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Quit(){
         Application.Quit();
     }

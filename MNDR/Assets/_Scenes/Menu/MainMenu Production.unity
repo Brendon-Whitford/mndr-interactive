@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34415752, g: 0.17959684, b: 0.38601115, a: 1}
+  m_IndirectSpecularColor: {r: 0.34432134, g: 0.1795353, b: 0.38545293, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1440,10 +1440,6 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 775984989}
-    - target: {fileID: 4421727863214352225, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4656578926027788561, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
       propertyPath: m_Name
       value: Pause Menu
@@ -1479,18 +1475,6 @@ PrefabInstance:
     - target: {fileID: 5910052485733294925, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
       propertyPath: m_SizeDelta.y
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5910052485733294925, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4482843
-      objectReference: {fileID: 0}
-    - target: {fileID: 5910052485733294925, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.27824736
-      objectReference: {fileID: 0}
-    - target: {fileID: 5910052485733294925, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.27824736
       objectReference: {fileID: 0}
     - target: {fileID: 5910052485733294925, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1540,10 +1524,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6361794484374917819, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-      propertyPath: m_text
-      value: Diner
-      objectReference: {fileID: 0}
     - target: {fileID: 8769748348779525150, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1551,57 +1531,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4656578926027788561, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-      insertIndex: 7
-      addedObject: {fileID: 1817385540}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
---- !u!1 &1817385539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4656578926027788561, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-  m_PrefabInstance: {fileID: 1817385538}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1817385540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817385539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebf3151efb826046a46325808dfe944, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPauseMenuSpawnPoint: {fileID: 0}
-  menuActive: 0
-  pauseMenuAction: {fileID: 5942439000665731151, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  mainPage: {fileID: 1817385544}
-  settingsPage: {fileID: 1817385543}
-  panel: {fileID: 1817385542}
-  dinerButton: {fileID: 1817385541}
-  hubScene:
-    m_Handle: 0
---- !u!1 &1817385541 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 777900784503915176, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-  m_PrefabInstance: {fileID: 1817385538}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1817385542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3414270437121178999, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-  m_PrefabInstance: {fileID: 1817385538}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1817385543 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4537156234919774610, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-  m_PrefabInstance: {fileID: 1817385538}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1817385544 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2568168078941655615, guid: 1358a2c6241d21c4fbc161964027015f, type: 3}
-  m_PrefabInstance: {fileID: 1817385538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1884479075
 GameObject:
   m_ObjectHideFlags: 0
