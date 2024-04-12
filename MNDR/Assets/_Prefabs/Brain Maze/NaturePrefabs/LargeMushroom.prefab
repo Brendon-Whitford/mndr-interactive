@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 1274368942887446563}
   - component: {fileID: 3636238691487715202}
   - component: {fileID: 7949699713168995740}
+  - component: {fileID: 1062252771613954811}
   m_Layer: 0
   m_Name: LargeMushroom
   m_TagString: Untagged
@@ -202,3 +203,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1062252771613954811
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434766832025438845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6060554719179841122, guid: 13950573046f8cd4d87a8a08699866d7, type: 3}

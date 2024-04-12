@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 7904189004913261247}
   - component: {fileID: 1760769685706026604}
   - component: {fileID: 6345276013761960342}
+  - component: {fileID: 1537032433377175803}
   m_Layer: 0
   m_Name: LampMushroomYellow
   m_TagString: Untagged
@@ -202,3 +203,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1537032433377175803
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209666833467529197}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7387706064836869012, guid: 127d647acba935f4c92647299f6a9b9f, type: 3}

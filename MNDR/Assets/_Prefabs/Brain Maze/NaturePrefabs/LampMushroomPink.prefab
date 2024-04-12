@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 3470651906190283507}
   - component: {fileID: 7403854564810439042}
   - component: {fileID: 4159574608939338847}
+  - component: {fileID: 4490225319619743661}
   m_Layer: 0
   m_Name: LampMushroomPink
   m_TagString: Untagged
@@ -202,3 +203,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4490225319619743661
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666391612798827622}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7387706064836869012, guid: 127d647acba935f4c92647299f6a9b9f, type: 3}
