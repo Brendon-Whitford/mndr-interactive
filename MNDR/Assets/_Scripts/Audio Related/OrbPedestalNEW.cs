@@ -1,16 +1,15 @@
 /**
 * OrbPedestalNEW
 * Author: Aria Strasser
-* Description: This script goes on a socket for an AudioOrb. Requires a String for the correct tag,
-*              an empty SocketManager object, and an empty MusicSource object with the audio effects
-*              and the audio source.
+* Description: This script goes on a socket for an AudioOrb. Requires a String for the correct tag
+*              and an empty MusicSource object with the audio effects and an audio source.
 *              
 *              When the user places an orb on the pedestal, it will check the tag (Make sure
-*              to tag the orbs). If it is the correct orb, it will turn on the relative effect on the
-*              audio, change activated to true, and then ask the SocketManager if all orbs are correctly 
-*              placed.
+*              to tag the orbs) and turn on the relative effect on the MusicSource, and change 
+*              activated to true. While an orb is on the pedestal, held orbs will not change the
+*              audio.
 *                            
-*              Works in conjunction with AudioOrbNEW and SocketManager scripts
+*              Works in conjunction with AudioOrbNEW script.
 */
 
 using System.Collections;
@@ -20,7 +19,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OrbPedestalNEW : MonoBehaviour
 {
-    public SocketManager socketManager;
+    //public SocketManager socketManager;
 
     private XRSocketInteractor socketInteractor;
     public GameObject audioEffectObject;
@@ -31,6 +30,7 @@ public class OrbPedestalNEW : MonoBehaviour
 
     public string orbName;
     public bool activated = false;
+
 
     void Awake()
     {
@@ -50,35 +50,22 @@ public class OrbPedestalNEW : MonoBehaviour
     // When the orb is socketed
     private void HandleSelectEntered(XRBaseInteractable interactable)
     {
-        // Check the tag of the interactable
-        if (interactable.CompareTag(orbName))
+        // Check the tag of the interactable and start that effect
+        
+        if (orbName == "RedOrb")
         {
-            if (orbName == "RedOrb")
-            {
-                reverbFilter.enabled = true;
-            }
-            else if (orbName == "BlueOrb")
-            {
-                chorusFilter.enabled = true;
-            }
-            else if (orbName == "BlackOrb")
-            {
-                distortionFilter.enabled = true;
-            }
-
-            // Added feedback??
-
-            activated = true;
-            Debug.Log("Correct!!");
-
-            // Check if others are activated
-            socketManager.correctSockets++;
-            socketManager.CheckSockets();
+            reverbFilter.enabled = true;
         }
-        else
+        else if (orbName == "BlueOrb")
         {
-            Debug.Log("Incorrect");
+            chorusFilter.enabled = true;
         }
+        else if (orbName == "BlackOrb")
+        {
+            distortionFilter.enabled = true;
+        }
+
+        activated = true;        
     }
 
 
@@ -101,29 +88,6 @@ public class OrbPedestalNEW : MonoBehaviour
                 distortionFilter.enabled = false;
             }
             activated = false;
-            socketManager.correctSockets--;
         }
     }
-
-
-    // We do it the clunky way because XR had a fit
-    /*public void OnTriggerEnter(Collider other)
-    {
-        AudioSource orbAudioSource = other.GetComponent<AudioSource>();
-
-        if (orbAudioSource != null)
-        {
-            orbAudioSource.volume = 0f;
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        AudioSource orbAudioSource = other.GetComponent<AudioSource>();
-
-        if (orbAudioSource != null)
-        {
-            orbAudioSource.volume = 0.8f;
-        }
-    }*/
 }

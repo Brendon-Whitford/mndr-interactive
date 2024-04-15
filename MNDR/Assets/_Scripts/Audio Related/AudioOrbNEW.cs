@@ -7,7 +7,8 @@
 *              Events respectively. Orbs must also be tagged.
 *              
 *              When the user picks up the orb, it will turn on an audio effect, and when the 
-*              user lets go, it will turn that effect off.
+*              user lets go, it will turn that effect off. Picking up a second orb will silence
+*              the original effect and play the new one.
 *              
 *              Works in conjunction with OrbPedestalNEW and SocketManager scripts
 */
@@ -24,30 +25,82 @@ public class AudioOrbNEW : MonoBehaviour
     private AudioReverbFilter reverbFilter;
     private AudioChorusFilter chorusFilter;
     private AudioDistortionFilter distortionFilter;
+    private AudioHighPassFilter highPassFilter;
+    private AudioLowPassFilter lowPassFilter;
+    private AudioEchoFilter echoFilter;
+    public GameObject pedestal;
+    private OrbPedestalNEW pedestalScript;
 
     void Awake()
     {
-        /*audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0;*/
         reverbFilter = audioEffectObject.GetComponent<AudioReverbFilter>();
         chorusFilter = audioEffectObject.GetComponent<AudioChorusFilter>();
         distortionFilter = audioEffectObject.GetComponent<AudioDistortionFilter>();
+        highPassFilter = audioEffectObject.GetComponent<AudioHighPassFilter>();
+        lowPassFilter = audioEffectObject.GetComponent<AudioLowPassFilter>();
+        echoFilter = audioEffectObject.GetComponent<AudioEchoFilter>();
+        pedestalScript = pedestal.GetComponent<OrbPedestalNEW>();
     }
 
     // Start Effect on Pick Up
     public void PickedUp()
     {
-        if (this.tag == "RedOrb")
+        if (!pedestalScript.activated)
         {
-            reverbFilter.enabled = true;
-        }
-        else if (this.tag == "BlueOrb")
-        {
-            chorusFilter.enabled = true;
-        }
-        else if (this.tag == "BlackOrb")
-        {
-            distortionFilter.enabled = true;
+            if (this.tag == "RedOrb")
+            {
+                reverbFilter.enabled = true;
+                chorusFilter.enabled = false;
+                distortionFilter.enabled = false;
+                highPassFilter.enabled = false;
+                lowPassFilter.enabled = false;
+                echoFilter.enabled = false;
+            }
+            else if (this.tag == "BlueOrb")
+            {
+                chorusFilter.enabled = true;
+                distortionFilter.enabled = false;
+                reverbFilter.enabled = false;
+                lowPassFilter.enabled = false;
+                echoFilter.enabled = false;
+                highPassFilter.enabled = false;
+            }
+            else if (this.tag == "BlackOrb")
+            {
+                distortionFilter.enabled = true;
+                chorusFilter.enabled = false;
+                reverbFilter.enabled = false;
+                lowPassFilter.enabled = false;
+                echoFilter.enabled = false;
+                highPassFilter.enabled = false;
+            }
+            else if (this.tag == "GreyOrb")
+            {
+                distortionFilter.enabled = false;
+                chorusFilter.enabled = false;
+                reverbFilter.enabled = false;
+                lowPassFilter.enabled = true;
+                echoFilter.enabled = false;
+                highPassFilter.enabled = false;
+            }
+            else if (this.tag == "BrownOrb")
+            {
+                distortionFilter.enabled = false;
+                chorusFilter.enabled = false;
+                reverbFilter.enabled = false;
+                lowPassFilter.enabled = false;
+                echoFilter.enabled = true;
+                highPassFilter.enabled = false;
+            }
+            else if (this.tag == "PurpleOrb")
+            {
+                distortionFilter.enabled = false;
+                chorusFilter.enabled = false;
+                reverbFilter.enabled = false;
+                lowPassFilter.enabled = false;
+                echoFilter.enabled = false;
+                highPassFilter.enabled = true;
+            }
         }
     }
 
