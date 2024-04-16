@@ -31,7 +31,7 @@ public class OrbPedestalNEW : MonoBehaviour
     private AudioLowPassFilter lowPassFilter;
     private AudioEchoFilter echoFilter;
 
-    public string orbName;
+    //public string orbName;
     public bool activated = false;
 
 
@@ -58,27 +58,27 @@ public class OrbPedestalNEW : MonoBehaviour
     {
         // Check the tag of the interactable and start that effect
         
-        if (orbName == "RedOrb")
+        if (interactable.CompareTag("RedOrb"))
         {
             reverbFilter.enabled = true;
         }
-        else if (orbName == "BlueOrb")
+        else if (interactable.CompareTag("BlueOrb"))
         {
             chorusFilter.enabled = true;
         }
-        else if (orbName == "BlackOrb")
+        else if (interactable.CompareTag("BlackOrb"))
         {
             distortionFilter.enabled = true;
         }
-        else if (orbName == "GreyOrb")
+        else if (interactable.CompareTag("GreyOrb"))
         {
             lowPassFilter.enabled = true;
         }
-        else if (orbName == "BrownOrb")
+        else if (interactable.CompareTag("BrownOrb"))
         {
             echoFilter.enabled = true;
         }
-        else if (orbName == "PurpleOrb")
+        else if (interactable.CompareTag("PurpleOrb"))
         {
             highPassFilter.enabled = true;
         }
@@ -91,33 +91,30 @@ public class OrbPedestalNEW : MonoBehaviour
 
     private void HandleSelectExited(XRBaseInteractable interactable)
     {
-        if (interactable.CompareTag(orbName))
-        {
-            if (orbName == "RedOrb")
+            if (interactable.CompareTag("RedOrb"))
             {
                 reverbFilter.enabled = false;
             }
-            else if (orbName == "BlueOrb")
+            else if (interactable.CompareTag("BlueOrb"))
             {
                 chorusFilter.enabled = false;
             }
-            else if (orbName == "BlackOrb")
+            else if (interactable.CompareTag("BlackOrb"))
             {
                 distortionFilter.enabled = false;
             }
-            else if (orbName == "GreyOrb")
+            else if (interactable.CompareTag("GreyOrb"))
             {
                 lowPassFilter.enabled = false;
             }
-            else if (orbName == "BrownOrb")
+            else if (interactable.CompareTag("BrownOrb"))
             {
                 echoFilter.enabled = false;
             }
-            else if (orbName == "PurpleOrb")
+            else if (interactable.CompareTag("PurpleOrb"))
             {
                 highPassFilter.enabled = false;
             }
             activated = false;
-        }
     }
 }
