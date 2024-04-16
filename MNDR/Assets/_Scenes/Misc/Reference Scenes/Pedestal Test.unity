@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 71817246}
   m_Layer: 0
   m_Name: Orb3
-  m_TagString: BlackOrb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 343275157}
   m_Layer: 0
   m_Name: Orb1
-  m_TagString: RedOrb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1196,7 +1196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioEffectObject: {fileID: 1929732597}
-  orbName: BlackOrb
   activated: 0
 --- !u!1 &427616740
 GameObject:
@@ -1498,8 +1497,8 @@ GameObject:
   - component: {fileID: 552965644}
   - component: {fileID: 552965643}
   m_Layer: 0
-  m_Name: Orb6 (2)
-  m_TagString: BrownOrb
+  m_Name: EchoOrb
+  m_TagString: EchoOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1824,8 +1823,8 @@ GameObject:
   - component: {fileID: 579747209}
   - component: {fileID: 579747208}
   m_Layer: 0
-  m_Name: Orb6 (1)
-  m_TagString: GreyOrb
+  m_Name: LowPassOrb
+  m_TagString: LowPassOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2150,8 +2149,8 @@ GameObject:
   - component: {fileID: 711904108}
   - component: {fileID: 711904107}
   m_Layer: 0
-  m_Name: Orb6 (3)
-  m_TagString: PurpleOrb
+  m_Name: HighPassOrb
+  m_TagString: HighPassOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2628,8 +2627,8 @@ GameObject:
   - component: {fileID: 887421473}
   - component: {fileID: 887421472}
   m_Layer: 0
-  m_Name: Orb6
-  m_TagString: BlackOrb
+  m_Name: DistortionOrb
+  m_TagString: DistortionOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3061,7 +3060,7 @@ GameObject:
   - component: {fileID: 1039728179}
   m_Layer: 0
   m_Name: Orb2
-  m_TagString: BlueOrb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3856,7 +3855,7 @@ GameObject:
   - component: {fileID: 1276360833}
   - component: {fileID: 1276360832}
   m_Layer: 0
-  m_Name: Pedestal6
+  m_Name: OrbPedestal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4280,8 +4279,8 @@ GameObject:
   - component: {fileID: 1495766688}
   - component: {fileID: 1495766687}
   m_Layer: 0
-  m_Name: Orb5
-  m_TagString: BlueOrb
+  m_Name: ChorusOrb
+  m_TagString: ChorusOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4936,8 +4935,8 @@ GameObject:
   - component: {fileID: 1764810626}
   - component: {fileID: 1764810625}
   m_Layer: 0
-  m_Name: Orb4
-  m_TagString: RedOrb
+  m_Name: ReverbOrb
+  m_TagString: ReverbOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -58,27 +58,27 @@ public class OrbPedestalNEW : MonoBehaviour
     {
         // Check the tag of the interactable and start that effect
         
-        if (interactable.CompareTag("RedOrb"))
+        if (interactable.CompareTag("ReverbOrb"))
         {
             reverbFilter.enabled = true;
         }
-        else if (interactable.CompareTag("BlueOrb"))
+        else if (interactable.CompareTag("ChorusOrb"))
         {
             chorusFilter.enabled = true;
         }
-        else if (interactable.CompareTag("BlackOrb"))
+        else if (interactable.CompareTag("DistortionOrb"))
         {
             distortionFilter.enabled = true;
         }
-        else if (interactable.CompareTag("GreyOrb"))
+        else if (interactable.CompareTag("LowPassOrb"))
         {
             lowPassFilter.enabled = true;
         }
-        else if (interactable.CompareTag("BrownOrb"))
+        else if (interactable.CompareTag("EchoOrb"))
         {
             echoFilter.enabled = true;
         }
-        else if (interactable.CompareTag("PurpleOrb"))
+        else if (interactable.CompareTag("HighPassOrb"))
         {
             highPassFilter.enabled = true;
         }
@@ -91,27 +91,27 @@ public class OrbPedestalNEW : MonoBehaviour
 
     private void HandleSelectExited(XRBaseInteractable interactable)
     {
-            if (interactable.CompareTag("RedOrb"))
+            if (interactable.CompareTag("ReverbOrb"))
             {
                 reverbFilter.enabled = false;
             }
-            else if (interactable.CompareTag("BlueOrb"))
+            else if (interactable.CompareTag("ChorusOrb"))
             {
                 chorusFilter.enabled = false;
             }
-            else if (interactable.CompareTag("BlackOrb"))
+            else if (interactable.CompareTag("DistortionOrb"))
             {
                 distortionFilter.enabled = false;
             }
-            else if (interactable.CompareTag("GreyOrb"))
+            else if (interactable.CompareTag("LowPassOrb"))
             {
                 lowPassFilter.enabled = false;
             }
-            else if (interactable.CompareTag("BrownOrb"))
+            else if (interactable.CompareTag("EchoOrb"))
             {
                 echoFilter.enabled = false;
             }
-            else if (interactable.CompareTag("PurpleOrb"))
+            else if (interactable.CompareTag("HighPassOrb"))
             {
                 highPassFilter.enabled = false;
             }

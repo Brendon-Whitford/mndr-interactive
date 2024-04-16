@@ -47,7 +47,7 @@ public class AudioOrbNEW : MonoBehaviour
     {
         if (!pedestalScript.activated)
         {
-            if (this.tag == "RedOrb")
+            if (this.tag == "ReverbOrb")
             {
                 reverbFilter.enabled = true;
                 chorusFilter.enabled = false;
@@ -56,7 +56,7 @@ public class AudioOrbNEW : MonoBehaviour
                 lowPassFilter.enabled = false;
                 echoFilter.enabled = false;
             }
-            else if (this.tag == "BlueOrb")
+            else if (this.tag == "ChorusOrb")
             {
                 chorusFilter.enabled = true;
                 distortionFilter.enabled = false;
@@ -65,7 +65,7 @@ public class AudioOrbNEW : MonoBehaviour
                 echoFilter.enabled = false;
                 highPassFilter.enabled = false;
             }
-            else if (this.tag == "BlackOrb")
+            else if (this.tag == "DistortionOrb")
             {
                 distortionFilter.enabled = true;
                 chorusFilter.enabled = false;
@@ -74,7 +74,7 @@ public class AudioOrbNEW : MonoBehaviour
                 echoFilter.enabled = false;
                 highPassFilter.enabled = false;
             }
-            else if (this.tag == "GreyOrb")
+            else if (this.tag == "LowPassOrb")
             {
                 distortionFilter.enabled = false;
                 chorusFilter.enabled = false;
@@ -83,7 +83,7 @@ public class AudioOrbNEW : MonoBehaviour
                 echoFilter.enabled = false;
                 highPassFilter.enabled = false;
             }
-            else if (this.tag == "BrownOrb")
+            else if (this.tag == "EchoOrb")
             {
                 distortionFilter.enabled = false;
                 chorusFilter.enabled = false;
@@ -92,7 +92,7 @@ public class AudioOrbNEW : MonoBehaviour
                 echoFilter.enabled = true;
                 highPassFilter.enabled = false;
             }
-            else if (this.tag == "PurpleOrb")
+            else if (this.tag == "HighPassOrb")
             {
                 distortionFilter.enabled = false;
                 chorusFilter.enabled = false;
@@ -107,27 +107,27 @@ public class AudioOrbNEW : MonoBehaviour
     // Stop Effect on Put Down
     public void PutDown()
     {
-        if (this.tag == "RedOrb")
+        if (this.tag == "ReverbOrb")
         {
             reverbFilter.enabled = false;
         }
-        else if (this.tag == "BlueOrb")
+        else if (this.tag == "ChorusOrb")
         {
             chorusFilter.enabled = false;
         }
-        else if (this.tag == "BlackOrb")
+        else if (this.tag == "DistortionOrb")
         {
             distortionFilter.enabled = false;
         }
-        else if (this.tag == "GreyOrb")
+        else if (this.tag == "LowPassOrb")
         {
             lowPassFilter.enabled = false;
         }
-        else if (this.tag == "BrownOrb")
+        else if (this.tag == "EchoOrb")
         {
             echoFilter.enabled = false;
         }
-        else if (this.tag == "PurpleOrb")
+        else if (this.tag == "HighPassOrb")
         {
             highPassFilter.enabled = false;
         }
