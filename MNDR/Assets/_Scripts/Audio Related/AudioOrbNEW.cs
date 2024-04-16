@@ -119,15 +119,15 @@ public class AudioOrbNEW : MonoBehaviour
         {
             distortionFilter.enabled = false;
         }
-        else if (orbName == "GreyOrb")
+        else if (this.tag == "GreyOrb")
         {
             lowPassFilter.enabled = false;
         }
-        else if (orbName == "BrownOrb")
+        else if (this.tag == "BrownOrb")
         {
             echoFilter.enabled = false;
         }
-        else if (orbName == "PurpleOrb")
+        else if (this.tag == "PurpleOrb")
         {
             highPassFilter.enabled = false;
         }

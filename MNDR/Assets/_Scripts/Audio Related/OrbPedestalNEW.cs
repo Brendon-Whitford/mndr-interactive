@@ -82,7 +82,7 @@ public class OrbPedestalNEW : MonoBehaviour
         {
             highPassFilter.enabled = true;
         }
-
+        
         activated = true;        
     }
 
