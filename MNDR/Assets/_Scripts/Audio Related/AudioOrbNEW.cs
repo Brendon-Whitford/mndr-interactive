@@ -29,7 +29,7 @@ public class AudioOrbNEW : MonoBehaviour
     private AudioLowPassFilter lowPassFilter;
     private AudioEchoFilter echoFilter;
     public GameObject pedestal;
-    private OrbPedestalNEW pedestalScript;
+    public OrbPedestalNEW pedestalScript;
 
     void Awake()
     {

@@ -27,6 +27,9 @@ public class OrbPedestalNEW : MonoBehaviour
     private AudioReverbFilter reverbFilter;
     private AudioChorusFilter chorusFilter;
     private AudioDistortionFilter distortionFilter;
+    private AudioHighPassFilter highPassFilter;
+    private AudioLowPassFilter lowPassFilter;
+    private AudioEchoFilter echoFilter;
 
     public string orbName;
     public bool activated = false;
@@ -37,6 +40,9 @@ public class OrbPedestalNEW : MonoBehaviour
         reverbFilter = audioEffectObject.GetComponent<AudioReverbFilter>();
         chorusFilter = audioEffectObject.GetComponent<AudioChorusFilter>();
         distortionFilter = audioEffectObject.GetComponent<AudioDistortionFilter>();
+        highPassFilter = audioEffectObject.GetComponent<AudioHighPassFilter>();
+        lowPassFilter = audioEffectObject.GetComponent<AudioLowPassFilter>();
+        echoFilter = audioEffectObject.GetComponent<AudioEchoFilter>();
     }
 
     void Start()
@@ -64,6 +70,18 @@ public class OrbPedestalNEW : MonoBehaviour
         {
             distortionFilter.enabled = true;
         }
+        else if (orbName == "GreyOrb")
+        {
+            lowPassFilter.enabled = true;
+        }
+        else if (orbName == "BrownOrb")
+        {
+            echoFilter.enabled = true;
+        }
+        else if (orbName == "PurpleOrb")
+        {
+            highPassFilter.enabled = true;
+        }
 
         activated = true;        
     }
@@ -86,6 +104,18 @@ public class OrbPedestalNEW : MonoBehaviour
             else if (orbName == "BlackOrb")
             {
                 distortionFilter.enabled = false;
+            }
+            else if (orbName == "GreyOrb")
+            {
+                lowPassFilter.enabled = false;
+            }
+            else if (orbName == "BrownOrb")
+            {
+                echoFilter.enabled = false;
+            }
+            else if (orbName == "PurpleOrb")
+            {
+                highPassFilter.enabled = false;
             }
             activated = false;
         }
