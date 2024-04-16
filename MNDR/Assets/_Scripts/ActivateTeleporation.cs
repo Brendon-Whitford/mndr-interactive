@@ -21,6 +21,12 @@ public class ActivateTeleporation : MonoBehaviour
 
     public bool canTeleport = false;
 
+    private void Awake()
+    {
+        //Potential fix for NullReferenceError
+        leftActivate.action.Enable();
+    }
+
     void Update()
     {
         if (canTeleport)
