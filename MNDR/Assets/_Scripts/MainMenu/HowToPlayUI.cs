@@ -7,7 +7,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HowToPlayUI : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject menuSpawnPoint;
     [SerializeField] private GameObject howToPlayUI;
+    [SerializeField] private float timeToWait = 1f;
+    private bool activateTimer;
+
     private static HowToPlayUI instance;
 
     private ActionBasedContinuousMoveProvider conMovement;
@@ -24,6 +28,8 @@ public class HowToPlayUI : MonoBehaviour
         DontDestroyOnLoad(this);
         if (instance == null)
         {
+            activateTimer = true;
+            menuSpawnPoint = GameObject.FindGameObjectWithTag("Pause");
             player = GameObject.FindGameObjectWithTag("Player");
             instance = this;
             conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
@@ -41,15 +47,32 @@ public class HowToPlayUI : MonoBehaviour
 
     private void Update()
     {
+        if (activateTimer == true)
+        {
+            Timer();
+        }
+
         if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2) && natureFirstTime == true)
         {
             natureFirstTime = false;
+            activateTimer = true;
             DisableMovement();
         }
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3) && clubFirstTime == true)
         {
             clubFirstTime = false;
+            activateTimer = true;
             DisableMovement();
+        }
+    }
+
+    private void Timer()
+    {
+        timeToWait -= Time.deltaTime;
+        if (timeToWait <= 0)
+        {
+            activateTimer = false;
+            transform.position = menuSpawnPoint.transform.position;
         }
     }
 
