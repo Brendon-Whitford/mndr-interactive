@@ -45,8 +45,8 @@ public class Booth : MonoBehaviour
         player = GameObject.Find(XRRigName).transform;
 
         // grabbin the components for Continuous and Teleportation movement
-        conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
-        telportMovement = player.GetComponent<TeleportationProvider>();
+        conMovement = player.gameObject.GetComponent<ActionBasedContinuousMoveProvider>();
+        telportMovement = player.gameObject.GetComponent<TeleportationProvider>();
     }
 
     private void Start()
@@ -57,9 +57,9 @@ public class Booth : MonoBehaviour
 
         boothCollider.enabled = true;
 
-        CheckMovementType();
-
         isSitting = false;
+
+        CheckMovementType();
     }
 
     private void Update()
@@ -81,9 +81,6 @@ public class Booth : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // creating a raycast out of the right controller
-        //Ray rightControllerRay = new(rightController.position, rightController.forward);
-
         if (Physics.Raycast(RightControllerRaycast(), out RaycastHit hit, interactDistance))
         {
             if (((1 << hit.collider.gameObject.layer) & boothLayerMask) != 0 && !isSitting)
@@ -110,34 +107,32 @@ public class Booth : MonoBehaviour
     /// hanldes action when the player sits in the booth.
     /// </summary>
     /// <returns>Returns isSitting = true.</returns>
-    private bool SitAction()
+    private void SitAction()
     {
         if (isContinuouse)
             conMovement.enabled = false;
         else if (isTeleport)
             telportMovement.enabled = false;
 
-        //boothCollider.enabled = false;
+        boothCollider.enabled = false;
         MovePlayer(sittingTransform);
-
-        return isSitting = true;
+        isSitting = true;
     }
 
     /// <summary>
     /// Handles actions when the player exits the booth.
     /// </summary>
     /// <returns>Returns isSitting = false.</returns>
-    private bool ExitAction()
+    private void ExitAction()
     {
         if (isContinuouse)
             conMovement.enabled = true;
         else if (isTeleport)
             telportMovement.enabled = true;
 
-        //boothCollider.enabled = true;
+        boothCollider.enabled = true;
         MovePlayer(exitTransform);
-
-        return isSitting = false;
+        isSitting = false;
     }
 
     /// <summary>
@@ -167,5 +162,7 @@ public class Booth : MonoBehaviour
     {
         isContinuouse = conMovement.enabled;
         isTeleport = telportMovement.enabled;
+
+        Debug.Log($"{isContinuouse}, {isTeleport}");
     }
 }

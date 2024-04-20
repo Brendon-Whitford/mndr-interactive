@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0068675354, g: 0.013183928, b: 0.13412264, a: 1}
+  m_IndirectSpecularColor: {r: 0.006868708, g: 0.013177948, b: 0.13412754, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -47754,16 +47754,16 @@ MonoBehaviour:
   XRRigName: XR Origin (1)
   sittingTransform: {fileID: 1083179949}
   exitTransform: {fileID: 1395301000}
-  boothLayerMask:
-    serializedVersion: 2
-    m_Bits: 16384
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 32768
   interactDistance: 25
   sittingUI: {fileID: 654416026}
   exitUI: {fileID: 149831937}
+  boothCollider: {fileID: 1944468867}
   isSitting: 0
+--- !u!64 &1944468867 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 6193906435215657832, guid: 368723afb9fa28d499f5528c7913be6b, type: 3}
+  m_PrefabInstance: {fileID: 1944468863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1947397201
 PrefabInstance:
   m_ObjectHideFlags: 0

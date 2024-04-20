@@ -21,6 +21,7 @@ public class HowToPlayUI : MonoBehaviour
 
     private bool natureFirstTime;
     private bool clubFirstTime;
+    private bool hubFirstTime;
 
     void Awake()
     {
@@ -37,12 +38,18 @@ public class HowToPlayUI : MonoBehaviour
             DisableMovement();
             natureFirstTime = true;
             clubFirstTime = true;
+            hubFirstTime = true;
         }
         else
         {
             gameObject.SetActive(false);
             Destroy(this);
         }
+    }
+
+    private void Start()
+    {
+        CheckMovementType();
     }
 
     private void Update()
@@ -52,7 +59,14 @@ public class HowToPlayUI : MonoBehaviour
             Timer();
         }
 
-        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2) && natureFirstTime == true)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && hubFirstTime == true)
+        {
+            hubFirstTime = false;
+            activateTimer = true;
+            DisableMovement();
+        }
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2) && natureFirstTime == true)
         {
             natureFirstTime = false;
             activateTimer = true;
@@ -79,9 +93,10 @@ public class HowToPlayUI : MonoBehaviour
     private void DisableMovement()
     {
         howToPlayUI.SetActive(true);
-        CheckMovementType();
-        conMovement.enabled = false;
-        telportMovement.enabled = false;
+        if (isContinuouse)
+            conMovement.enabled = false;
+        else if (isTeleport)
+            telportMovement.enabled = false;
     }
 
     private void CheckMovementType()
