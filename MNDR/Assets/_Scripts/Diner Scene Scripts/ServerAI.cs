@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//roaming diner AI, after interacting with the button on the order menu at the booth, it will bring a food that transitions scenes when picked up - jacob palin
+
 public class ServerAI : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent; //the AI object with a nav mesh agent component
