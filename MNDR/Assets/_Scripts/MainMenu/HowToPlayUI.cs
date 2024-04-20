@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
+//tutorial UI that pops up the first time the player enters the diner/nature/club scenes - jacob palin
+
 public class HowToPlayUI : MonoBehaviour
 {
     [SerializeField] private GameObject player;
@@ -43,7 +46,7 @@ public class HowToPlayUI : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            Destroy(this);
+            Destroy(gameObject, .1f); //objects can't destroy themselves immediately so you need to add a delay
         }
     }
 
@@ -54,11 +57,34 @@ public class HowToPlayUI : MonoBehaviour
 
     private void Update()
     {
+        //since the player is being destroyed when returning to the main menu, you need to grab these again unless you unload the main menu scene after moving to another scene
+
+        if (menuSpawnPoint == null)
+        {
+            menuSpawnPoint = GameObject.FindGameObjectWithTag("Pause");
+        }
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if (conMovement == null)
+        {
+            conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
+        }
+        if (telportMovement == null)
+        {
+            telportMovement = player.GetComponent<TeleportationProvider>();
+        }
+
+
+        //wait for the player to move to the spawn point before putting the UI in front
         if (activateTimer == true)
         {
             Timer();
         }
 
+
+        //pop up for first time in each scene, probably a better way to do it for more scenes in the future with a for loop and a bool list that grabs the number of current scenes then every time you enter a new scene it compares it to the bool list plus 1 to build index number, plus 1 because main menu exists
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && hubFirstTime == true)
         {
             hubFirstTime = false;
