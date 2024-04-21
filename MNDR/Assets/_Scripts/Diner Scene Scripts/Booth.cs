@@ -1,5 +1,5 @@
+using System.Data.Common;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit;
 
 /*
@@ -19,15 +19,16 @@ public class Booth : MonoBehaviour
     [SerializeField] private Transform exitTransform;
 
     [Header("Interaction References")]
-    [SerializeField] private LayerMask boothLayerMask;
-    [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float interactDistance;
     [SerializeField] private GameObject sittingUI;
     [SerializeField] private GameObject exitUI;
-
+    [SerializeField] private MeshCollider boothCollider;
     [Space]
     [Tooltip("Boolean to check if the player is sitting.")]
     public bool isSitting;
+
+    private LayerMask boothLayerMask;
+    private LayerMask groundLayerMask;
 
     private Transform player;
     private Transform rightController;
@@ -39,32 +40,37 @@ public class Booth : MonoBehaviour
 
     private void Awake()
     {
+        // finding the right controller and the player
         rightController = GameObject.Find("RightHand Controller").transform;
         player = GameObject.Find(XRRigName).transform;
 
-        conMovement = player.GetComponent<ActionBasedContinuousMoveProvider>();
-        telportMovement = player.GetComponent<TeleportationProvider>();
+        // grabbin the components for Continuous and Teleportation movement
+        conMovement = player.gameObject.GetComponent<ActionBasedContinuousMoveProvider>();
+        telportMovement = player.gameObject.GetComponent<TeleportationProvider>();
     }
 
     private void Start()
     {
-        CheckMovementType();
+        // setting layer masks
+        boothLayerMask = LayerMask.GetMask("BoothLayer");
+        groundLayerMask = LayerMask.GetMask("GroundLayer");
+
+        boothCollider.enabled = true;
 
         isSitting = false;
+
+        CheckMovementType();
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("RightController_A"))
         {
-            // creating a raycast out of the right controller
-            Ray rightControllerRay = new(rightController.position, rightController.forward);
-
-            if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && !isSitting)
+            if (Physics.Raycast(RightControllerRaycast(), interactDistance, boothLayerMask) && !isSitting)
             {
                 SitAction();
             }
-            else if (Physics.Raycast(rightControllerRay, interactDistance, groundLayerMask) && isSitting)
+            else if (Physics.Raycast(RightControllerRaycast(), interactDistance, groundLayerMask) && isSitting)
             {
                 ExitAction();
             }
@@ -75,51 +81,58 @@ public class Booth : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // creating a raycast out of the right controller
-        Ray rightControllerRay = new(rightController.position, rightController.forward);
+        if (Physics.Raycast(RightControllerRaycast(), out RaycastHit hit, interactDistance))
+        {
+            if (((1 << hit.collider.gameObject.layer) & boothLayerMask) != 0 && !isSitting)
+            {
+                sittingUI.SetActive(true);
+            }
+            else
+            {
+                sittingUI.SetActive(false);
+            }
+        }
+    }
 
-        if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && !isSitting)
-        {
-            sittingUI.SetActive(true);
-        }
-        else if (Physics.Raycast(rightControllerRay, interactDistance, boothLayerMask) && isSitting)
-        {
-            sittingUI.SetActive(false);
-        }
-        else
-        {
-            sittingUI.SetActive(false);
-        }
+    /// <summary>
+    /// Creates raycast out of the Right Controller transform.
+    /// </summary>
+    /// <returns>Returns the ray.</returns>
+    private Ray RightControllerRaycast()
+    {
+        return new Ray(rightController.position, rightController.forward);
     }
     
     /// <summary>
     /// hanldes action when the player sits in the booth.
     /// </summary>
     /// <returns>Returns isSitting = true.</returns>
-    private bool SitAction()
+    private void SitAction()
     {
         if (isContinuouse)
             conMovement.enabled = false;
         else if (isTeleport)
             telportMovement.enabled = false;
 
+        boothCollider.enabled = false;
         MovePlayer(sittingTransform);
-        return isSitting = true;
+        isSitting = true;
     }
 
     /// <summary>
     /// Handles actions when the player exits the booth.
     /// </summary>
     /// <returns>Returns isSitting = false.</returns>
-    private bool ExitAction()
+    private void ExitAction()
     {
         if (isContinuouse)
             conMovement.enabled = true;
         else if (isTeleport)
             telportMovement.enabled = true;
 
+        boothCollider.enabled = true;
         MovePlayer(exitTransform);
-        return isSitting = false;
+        isSitting = false;
     }
 
     /// <summary>
@@ -131,7 +144,6 @@ public class Booth : MonoBehaviour
             conMovement.enabled = true;
         else if (isTeleport)
             telportMovement.enabled = true;
-
     }
 
     /// <summary>
@@ -150,5 +162,7 @@ public class Booth : MonoBehaviour
     {
         isContinuouse = conMovement.enabled;
         isTeleport = telportMovement.enabled;
+
+        Debug.Log($"{isContinuouse}, {isTeleport}");
     }
 }
