@@ -15,22 +15,13 @@ using UnityEngine;
 public class JukeboxAudio : MonoBehaviour
 {
     public AudioSource audioSource;
-    //public AudioClip clip;
     public float volume = 0.5f;
-
-    // Leaving start here in case we want it to be naturally playing music on scene start
-    void Start()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Record"))
         {
-            //GoHome goHome = other.transform.parent.GetComponent<GoHome>();
-
-            //Stop any other AudioClips
+            //Stop any other AudioClips here if needed
 
             // Get the AudioClip from the record object
             AudioClip recordClip = other.gameObject.GetComponent<AudioSource>().clip;
@@ -38,9 +29,6 @@ public class JukeboxAudio : MonoBehaviour
             // Play the audio clip from the record
             audioSource.clip = recordClip;
             audioSource.Play();
-
-            // Put Record BACK
-            //goHome.returnHome();
         }
     }
 }
