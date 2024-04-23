@@ -20,7 +20,6 @@ using UnityEngine.Audio;
 
 public class AudioOrbNEW : MonoBehaviour
 {
-    //private AudioSource audioSource;
     public GameObject audioEffectObject;
     private AudioReverbFilter reverbFilter;
     private AudioChorusFilter chorusFilter;
@@ -31,6 +30,7 @@ public class AudioOrbNEW : MonoBehaviour
     public GameObject pedestal;
     public OrbPedestalNEW pedestalScript;
 
+    // Set all the filters
     void Awake()
     {
         reverbFilter = audioEffectObject.GetComponent<AudioReverbFilter>();

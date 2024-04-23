@@ -19,8 +19,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OrbPedestalNEW : MonoBehaviour
 {
-    //public SocketManager socketManager;
-
     private XRSocketInteractor socketInteractor;
     public GameObject audioEffectObject;
 
@@ -31,10 +29,9 @@ public class OrbPedestalNEW : MonoBehaviour
     private AudioLowPassFilter lowPassFilter;
     private AudioEchoFilter echoFilter;
 
-    //public string orbName;
     public bool activated = false;
 
-
+    //set all the filters
     void Awake()
     {
         reverbFilter = audioEffectObject.GetComponent<AudioReverbFilter>();
@@ -45,6 +42,7 @@ public class OrbPedestalNEW : MonoBehaviour
         echoFilter = audioEffectObject.GetComponent<AudioEchoFilter>();
     }
 
+    //set the socket interactions
     void Start()
     {
         socketInteractor = GetComponent<XRSocketInteractor>();
@@ -56,8 +54,8 @@ public class OrbPedestalNEW : MonoBehaviour
     // When the orb is socketed
     private void HandleSelectEntered(XRBaseInteractable interactable)
     {
+
         // Check the tag of the interactable and start that effect
-        
         if (interactable.CompareTag("ReverbOrb"))
         {
             reverbFilter.enabled = true;
@@ -88,7 +86,6 @@ public class OrbPedestalNEW : MonoBehaviour
 
 
     // User Picking Up Orb
-
     private void HandleSelectExited(XRBaseInteractable interactable)
     {
             if (interactable.CompareTag("ReverbOrb"))
