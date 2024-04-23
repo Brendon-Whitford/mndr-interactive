@@ -2765,6 +2765,7 @@ GameObject:
   - component: {fileID: 451402172270758750}
   - component: {fileID: 1956176392695978076}
   - component: {fileID: 5254008147245949389}
+  - component: {fileID: 820753356210377962}
   m_Layer: 7
   m_Name: XR Origin (1)
   m_TagString: Player
@@ -3065,6 +3066,19 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   canTeleport: 0
+--- !u!114 &820753356210377962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451402172270758749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a477677911e5849ae30310dc191e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slopeForce: 5
 --- !u!1 &451402172514276834
 GameObject:
   m_ObjectHideFlags: 0
