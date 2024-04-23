@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour
 {
     public AudioClip[] voiceLines;
     private AudioSource audioSource;
+    public AudioClip diamonds;
 
     private void Start()
     {
@@ -26,7 +27,8 @@ public class NPC : MonoBehaviour
         //1/10 chance to say feed me diamonds, to raise the chance replace == with < and then any number above 0
         if (Random.Range(0, 10) == 0)
         {
-            Debug.Log("Feed Me Diamonds");
+            //Debug.Log("Feed Me Diamonds");
+            audioSource.PlayOneShot(diamonds);
         }
         else if (cardNumber >= 0 && cardNumber < voiceLines.Length) 
         {

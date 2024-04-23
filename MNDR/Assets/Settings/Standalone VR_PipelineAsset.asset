@@ -19,7 +19,7 @@ MonoBehaviour:
   m_RendererDataList:
   - {fileID: 11400000, guid: 5d356e545ccfb104da946144d2341f6b, type: 2}
   m_DefaultRendererIndex: 0
-  m_RequireDepthTexture: 1
+  m_RequireDepthTexture: 0
   m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 1
   m_SupportsTerrainHoles: 0
@@ -37,9 +37,9 @@ MonoBehaviour:
   m_MainLightShadowsSupported: 1
   m_MainLightShadowmapResolution: 1024
   m_AdditionalLightsRenderingMode: 1
-  m_AdditionalLightsPerObjectLimit: 4
-  m_AdditionalLightShadowsSupported: 0
-  m_AdditionalLightsShadowmapResolution: 512
+  m_AdditionalLightsPerObjectLimit: 8
+  m_AdditionalLightShadowsSupported: 1
+  m_AdditionalLightsShadowmapResolution: 1024
   m_AdditionalLightsShadowResolutionTierLow: 256
   m_AdditionalLightsShadowResolutionTierMedium: 512
   m_AdditionalLightsShadowResolutionTierHigh: 1024
@@ -59,10 +59,10 @@ MonoBehaviour:
   m_NumIterationsEnclosingSphere: 64
   m_SoftShadowQuality: 2
   m_AdditionalLightsCookieResolution: 1024
-  m_AdditionalLightsCookieFormat: 1
+  m_AdditionalLightsCookieFormat: 2
   m_UseSRPBatcher: 1
   m_SupportsDynamicBatching: 0
-  m_MixedLightingSupported: 0
+  m_MixedLightingSupported: 1
   m_SupportsLightCookies: 1
   m_SupportsLightLayers: 0
   m_DebugLevel: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
     bayerMatrixTex: {fileID: 2800000, guid: f9ee4ed84c1d10c49aabb9b210b0fc44, type: 3}
   m_PrefilteringModeMainLightShadows: 3
   m_PrefilteringModeAdditionalLight: 4
-  m_PrefilteringModeAdditionalLightShadows: 0
+  m_PrefilteringModeAdditionalLightShadows: 2
   m_PrefilterXRKeywords: 0
   m_PrefilteringModeForwardPlus: 0
   m_PrefilteringModeDeferredRendering: 0

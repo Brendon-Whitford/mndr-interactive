@@ -13,9 +13,12 @@ using UnityEngine;
 public class GoHome : MonoBehaviour
 {
     public Vector3 homeCoords;
+    //public Quaternion homeCoordsRotation; //if the item needs rotation
 
     public void returnHome()
     {
         this.transform.position = homeCoords;
+        //this.transform.rotation = homeCoordsRotation; //if the item needs rotation
+
     }
 }
