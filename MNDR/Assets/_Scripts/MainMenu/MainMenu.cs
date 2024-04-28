@@ -16,11 +16,13 @@ public class MainMenu : MonoBehaviour
 {
     [Header ("Pages")]
     public GameObject pageOne;
-    public GameObject pageTwo;  
+    public GameObject pageTwo;
+    public GameObject pageThree;
 
     public void Awake() {
         pageOne.SetActive(true);
         pageTwo.SetActive(false);
+        pageThree.SetActive(false);
     }
 
     //Chooses which seen to go on, set this for the start button
@@ -35,10 +37,19 @@ public class MainMenu : MonoBehaviour
     public void GoToSettings(){
         pageOne.SetActive(false);
         pageTwo.SetActive(true);
+        pageThree.SetActive(false);
     }
 
     public void GoToMainMenu(){
         pageOne.SetActive(true);
         pageTwo.SetActive(false);
+        pageThree.SetActive(false);
+    }
+
+    public void GoToCredits()
+    {
+        pageOne.SetActive(false);
+        pageTwo.SetActive(false);
+        pageThree.SetActive(true);
     }
 }
