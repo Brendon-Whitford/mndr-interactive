@@ -19,13 +19,20 @@ public class WanderingNPC : MonoBehaviour
     public float waitDuration = 2f;
     private NavMeshAgent navMesh;
     private Transform target;
+    private Animator animator;
+
     private bool isPlayerInRange = false;
     private bool isWaiting = false;
+    private const string Moving = "Moving";
+    private const string Waiting = "Waiting";
+
 
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
+
         GoToNextPoint();
     }
 
@@ -49,6 +56,7 @@ public class WanderingNPC : MonoBehaviour
         //extra check to go to new navPoint
         else if(!navMesh.pathPending && navMesh.remainingDistance < 0.5f)
         {
+            
             StartCoroutine(WaitTime());
         }
     }
@@ -56,6 +64,8 @@ public class WanderingNPC : MonoBehaviour
     //Code for stopping NPC and for it to look at player
     void LookAtPlayer()
     {
+        animator.SetBool(Moving, false);
+        animator.SetBool(Waiting, false);
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
@@ -65,6 +75,9 @@ public class WanderingNPC : MonoBehaviour
     //Move to random point
     void GoToNextPoint()
     {
+        animator.SetBool(Moving, true);
+        animator.SetBool(Waiting, false);
+
         float randomWanderDistance = Random.Range(minWanderDistance, maxWanderDistance);
 
         Vector3 randomDirection = Random.insideUnitSphere * randomWanderDistance;
@@ -81,6 +94,8 @@ public class WanderingNPC : MonoBehaviour
     {
         if (!isWaiting)
         {
+            animator.SetBool(Moving, false);
+            animator.SetBool(Waiting, true);
             isWaiting = true;
             yield return new WaitForSeconds(waitDuration);
             GoToNextPoint();
