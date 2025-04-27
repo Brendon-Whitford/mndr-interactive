@@ -1271,15 +1271,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632841234747186024, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
       propertyPath: m_text
-      value: Press The Right Controller A Button To Stand
+      value: "Pick Up The Menu & \nPoint At What You Want To Order.\nThen Press The
+        Trigger Button"
       objectReference: {fileID: 0}
     - target: {fileID: 7632841234747186024, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
       propertyPath: m_fontSize
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7632841234747186024, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
       propertyPath: m_fontSizeBase
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7818677339520377699, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
       propertyPath: m_Name
@@ -21585,6 +21586,26 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3363368869040759605, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363368869040759605, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363368869040759605, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363368869040759605, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.94366217
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363368869040759605, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363368869040759605, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1817933013}
@@ -21683,6 +21704,26 @@ PrefabInstance:
     - target: {fileID: 8594945203697101034, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 93.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660978918193868314, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4523416
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660978918193868314, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.73831093
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660978918193868314, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660978918193868314, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660978918193868314, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 9057088774940426156, guid: 8099ee6b49bfded4e8f4176cacfa3c4c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

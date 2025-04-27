@@ -89,7 +89,7 @@ public class Booth : MonoBehaviour
             }
             else
             {
-                sittingUI.SetActive(false);
+              //  sittingUI.SetActive(false);
             }
         }
     }
