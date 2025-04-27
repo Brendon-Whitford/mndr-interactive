@@ -1975,7 +1975,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632841234747186024, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
       propertyPath: m_text
-      value: "Press A to go to \nClub Hippocampus"
+      value: 'Press A To Go To
+
+        Club Hippocampus'
       objectReference: {fileID: 0}
     - target: {fileID: 7632841234747186024, guid: 82e9359356645bb4899ea942f4c20323, type: 3}
       propertyPath: m_fontStyle
@@ -10623,7 +10625,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 21b1859943c670e419b3aced3c143858, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ae2aeed5c87caf64a965932c9e43c794, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 19d7128d8a4630b49917e6351ddf5f99, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -26516,6 +26518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522359584}
+  - component: {fileID: 1522359585}
   m_Layer: 0
   m_Name: Staircase
   m_TagString: Untagged
@@ -26548,6 +26551,24 @@ Transform:
   - {fileID: 145329485}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522359585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522359583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6b378232cf1ac439a55d7cd07fa608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneID: 3
+  staircaseLayer:
+    serializedVersion: 2
+    m_Bits: 131072
+  interactDistance: 3
+  hoverUI: {fileID: 145329486}
 --- !u!1001 &1529991457
 PrefabInstance:
   m_ObjectHideFlags: 0
